@@ -11,11 +11,12 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 
 ## 1. Welcome (20 min)
 
-1. Open the Codespace: **https://codespaces.new/Youth-AI-Lab/yal-workshop-wiki** → **Create codespace**.
-2. Terminal 1: `workshop-login`, paste the key once, Enter → you see `Key OK`.
-3. Drag `my-work.zip` into the file list. Terminal 1: `workshop-start 5 --from my-work.zip`
+1. Idle timeout not set yet on this account? First: [SETUP.md, step 1](SETUP.md#step-1---let-the-codespace-wait-for-you).
+2. Open the Codespace: **https://codespaces.new/Youth-AI-Lab/yal-workshop-wiki** → **Create codespace**.
+3. Terminal 1: `workshop-login`, paste the key once, Enter → you see `Key OK`.
+4. Drag `my-work.zip` into the file list. Terminal 1: `workshop-start 5 --from my-work.zip`
    (without a save: `workshop-start 5`) → `Ready for workshop 5`.
-4. Terminal 2: `openwebui start`. Do not wait: it ends by itself.
+5. Terminal 2: `openwebui start`. Do not wait: it ends by itself.
 
 ## 2. The wiki (30 min)
 

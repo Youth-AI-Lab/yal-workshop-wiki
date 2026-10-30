@@ -12,6 +12,9 @@
 
 > 🎓 **Open your Codespace** (one per pair): 👉 **https://codespaces.new/Youth-AI-Lab/yal-workshop-wiki**
 >
+> **Before you click**, if the idle timeout of this GitHub account is not set yet: do
+> [step 1 of SETUP.md](SETUP.md#step-1---let-the-codespace-wait-for-you) (1 minute).
+>
 > This link creates your own copy of this repository, in VS Code running in your browser. Nothing
 > to install. The detailed steps are in [Part 1](#part-1---welcome-20-min).
 
@@ -103,8 +106,8 @@ All of these are in your Codespace, in the file list on the left, once Part 1 is
 
 ### Step 1 - Open your Codespace and save your key
 
-Follow [SETUP.md](SETUP.md#setup), steps 1 to 5, with the link at the top of this page: open the
-Codespace, let it wait for you, save your key with `workshop-login`, check `Key OK`, and open a
+Follow [SETUP.md](SETUP.md#setup), steps 1 to 5, with the link at the top of this page: let the
+Codespace wait for you, open it, save your key with `workshop-login`, check `Key OK`, and open a
 second terminal.
 
 > 💡 **If you use OpenCode.** Same commands, after `workshop-login --engine opencode`. It asks you
