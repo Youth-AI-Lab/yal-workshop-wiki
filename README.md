@@ -247,10 +247,11 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
 
 > ⚠️ **Important.** **Claude Code asks for your permission** before it writes or changes a file, as
 > in workshop 3. Read what it wants to write (green lines are added, red lines removed), then accept
-> with **1. Yes**. The question looks like this:
+> with **1. Yes**. For a new page, the question is `Do you want to create …?`. For a page that
+> already exists, it is `Do you want to make this edit to …?`, like this:
 >
 > ```
->  Do you want to create …?
+>  Do you want to make this edit to …?
 >  ❯ 1. Yes
 >    2. Yes, and switch to accept edits (auto-approve file edits and common file commands) for this session (shift+tab)
 >    3. No
@@ -258,6 +259,8 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
 > ```
 >
 > **Never choose 2**: you would no longer see what it writes.
+
+![Claude Code asks: Edit file, then the name of the wiki page. 1: the green lines, which it wants to add. 2: 1. Yes, to accept. 3: option 2, never choose it.](images/permission-edit.png)
 
 1. In your first terminal, type `workshop E`, then ask, with **your** file name:
 
@@ -271,6 +274,9 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
    topics of the document, usually 1 to 5, updates or creates a page for each, compares every figure
    and its scope with the wiki, and adds lines to `wiki/log.md`.
 3. Each time it wants to write, read what it writes, then accept with **1. Yes**.
+
+   ![Another change to the same page, at the top of the file. The red line starting with - is removed. 1: the green lines starting with +, which it adds: the new source and the new date. 2: 1. Yes. 3: option 2, never choose it.](images/permission-edit-sources.png)
+
 4. Read its report: which pages changed, and did it find a contradiction? Leave with **Ctrl+C twice**.
 
 In our test on 2026-10-30 (image 2026.10.34, in a container, not a Codespace, permissions accepted
@@ -288,11 +294,19 @@ asked a pair for 6 permissions, and the gauge reached about 26,000 tokens.
    In orange: corpus/80-benevento-aib-2026.pdf and the 2 page(s) that cite it.
    ```
 
-2. Open `wiki/graph.md`, and press `Ctrl+Shift+V`. **Look only at the orange part**:
+2. Open `wiki/graph.md`, and press `Ctrl+Shift+V`. **Look only at the orange part**. It is small:
+   in our test, it was at the bottom right of the drawing.
+
+   ![The preview of graph.md: the whole drawing of the wiki, small boxes joined by grey lines. The red frame, at the bottom right: the orange part.](images/graph-orange-overview.png)
+
+   To make it bigger, point at the drawing: buttons appear at its top right (point at one to see its name).
+   Click **Zoom In**, or hold `Alt` and turn the mouse wheel. **Reset Zoom** brings the whole drawing back.
+
+   ![The orange part, after zooming in. 1: the document ingested, a cylinder labelled 80 · corpus. 2: the two wiki pages that cite it. 3: a dotted arrow from the document to a page. At the top right of the drawing: the zoom buttons.](images/graph-orange.png)
 
    | In the drawing | Meaning |
    |---|---|
-   | Orange rounded shape | your summary (a cylinder if it is a document of `corpus/`) |
+   | Orange rounded shape | your summary (a cylinder labelled with its number, for example `80 · corpus`, if it is a document of `corpus/`) |
    | Orange rectangles | the wiki pages that cite it: what your document feeds |
    | Dotted arrow | from a document to a page that cites it |
 
@@ -433,7 +447,10 @@ Our graph has 82 nodes, 132 edges and 7 communities; 115 edges are `EXTRACTED`, 
    You should see `The map of the wiki is open at: http://localhost:8765`, and a new browser tab. If
    no tab opens: Ports tab (bottom panel), 8765, Open in Browser.
 2. On the right, tick or untick the `Communities`. In `Search nodes...`, type `Montoro`. Click a
-   node to see its links. To close the map, later: `wiki-explore stop`.
+   node on the map to see its links in `Node Info`. If you click a name in the search results
+   instead, the search box empties: this is normal. To close the map, later: `wiki-explore stop`.
+
+   ![The map of the wiki in the browser. 1: Communities, here with five of them unticked, so your map shows more. 2: Montoro typed in the box Search nodes. 3: the node clicked on the map, in white, and its links in Node Info, Neighbors (3).](images/wiki-map.png)
 
 #### Step 2 - Read the report
 
@@ -462,6 +479,11 @@ Our graph has 82 nodes, 132 edges and 7 communities; 115 edges are `EXTRACTED`, 
    A **path** is the chain of lines that goes from one node to another. `1 hops` means that they are
    joined directly. `semantically_similar_to` is the model's label for "these two ideas look alike",
    and `[INFERRED]` says that it guessed this.
+
+   On the map, this link is a dashed line: point at it to read `INFERRED`. `Node Info` does not
+   show it.
+
+   ![The map, with the mouse on the dashed line between Montoro protection strips and Obligations légales de débroussaillement (OLD). In the red frame, the small label: semantically_similar_to [INFERRED].](images/wiki-map-inferred.png)
 
 2. Ask for one node and its neighbours:
 
@@ -614,10 +636,12 @@ Two more options are on the slides of the facilitator:
    Wrote feurisson.zip: instructions + 57 knowledge files (17 summaries, 19 wiki pages, 21 documents).
    ```
 
-2. Right-click on the `.zip` file, then **Download**. It holds the *Instructions* box (your
+2. Right-click on the `.zip` file, then **Download...**. It holds the *Instructions* box (your
    `AGENTS.md`), the *Knowledge* box (summaries, wiki pages, readable copies of the documents), and a
    `README.md` on how to rebuild the chatbot. Your skills and the live tool of workshop 4 are **not**
    in it: in another tool, they have to be set up again.
+
+   ![1: feurisson.zip in the file list. 2: the item Download... of the menu that opens with a right-click.](images/download-zip-feurisson.png)
 
 ### Step 5 - Show it in Open WebUI
 
@@ -632,6 +656,9 @@ Two more options are on the slides of the facilitator:
    "Feurisson chatbot" in the message box (bottom right).`
 2. Open the address, choose your chatbot, and ask your question 12. It now has your wiki pages too,
    and it searches them itself.
+
+   ![Open WebUI, an empty conversation. 1: the button at the bottom right of the message box, which shows the model in use. 2: your chatbot in the list that opens.](images/chatbot-picker.png)
+
 3. In your pair, say what you would change before a group uses it.
 
 > 🚫 **Warning.** **Never make port 3000 public** to share it. For a group, see the Open WebUI guide:
@@ -641,8 +668,11 @@ Two more options are on the slides of the facilitator:
 
 ### Step 6 - Save your work, fill in the exit card
 
-1. Type `workshop-save`, then right-click on `my-work.zip` → **Download**. A Codespace stops by
+1. Type `workshop-save`, then right-click on `my-work.zip` → **Download...**. A Codespace stops by
    itself, and it is deleted after 30 days of inactivity: only the files you downloaded remain.
+
+   ![1: my-work.zip in the file list. 2: the item Download... of the menu that opens with a right-click.](images/download-zip.png)
+
 2. Answer on the card of the facilitator, alone, in a few words:
    1. Why does the wiki keep two figures that disagree?
    2. What is the difference between `EXTRACTED` and `INFERRED`, and who checks?
