@@ -5,6 +5,7 @@
 - **Project:** Youth AI Lab (Erasmus+), with five partners: L.A.B. (Aix-en-Provence, France),
   UAB (Barcelona, Spain), Perlatecnica (Naples, Italy), Digitale Wolven (Antwerp, Belgium),
   CSC Vent des Îles (La Rochelle, France).
+- **The series:** [the five workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series)
 - **Need help?**
   - Raise your hand and ask the facilitator.
   - If something breaks, don't panic: your files stay in the Codespace.
@@ -665,9 +666,14 @@ You leave with `<name>.zip` and `my-work.zip`, and each piece has a place in oth
 To rebuild your chatbot, the shortest way is **Open WebUI**: in a Codespace of the Open WebUI guide
 (not this one, where it is an unknown command), `openwebui import` takes the file of `chatbot-export`
 ([Open WebUI guide, Step 2 - Import a chatbot](https://github.com/Youth-AI-Lab/yal-openwebui-guide#step-2---import-a-chatbot)).
-A Claude Project and a Gemini Gem have the same two boxes. Flowise and Langflow connect blocks on a
-canvas; LangChain, LlamaIndex and the Claude Agent SDK are for code. To keep the pieces in a folder
+A Claude Project has the same two boxes, and so does a Gemini Gem. But Google makes Gems read-only on
+personal accounts on 2026-11-17 and removes them on 2026-12-17, and claude.ai is for adults only (18+):
+read the rules of a tool before you plan a session with young people. Flowise and Langflow connect
+blocks on a canvas; LangChain, LlamaIndex and the Claude Agent SDK are for code. To keep the pieces in a folder
 of your own: [OpenCode guide, Your own chatbot](https://github.com/Youth-AI-Lab/yal-opencode-guide#your-own-chatbot).
+
+**This is the end of the series.** Go back to [the five workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series), or try
+another way to build a chatbot with [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
 
 ---
 

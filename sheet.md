@@ -54,9 +54,9 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 
 1. `score E 3 10 11 12` (no question 12: `score E 3 10 11`).
 2. `scores.md`: the rows, not the Total. 3, 11, 12: C against E. 10: earlier columns against E.
-3. `chatbot-export --name "<your chatbot>"` → right-click on the `.zip` → **Download**.
+3. `chatbot-export --name "<your chatbot>"` → right-click on the `.zip` → **Download...**.
 4. Terminal 2: `openwebui chatbot --name "<your chatbot>"` → ask your question 12.
-5. `workshop-save` → right-click on `my-work.zip` → **Download**. Then the exit card, alone.
+5. `workshop-save` → right-click on `my-work.zip` → **Download...**. Then the exit card, alone. To go on: [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
 
 **Leave a conversation:** `Ctrl+C` twice. **Copy / paste in the terminal:** `Ctrl+Shift+C` /
 `Ctrl+Shift+V` (`Cmd+C` / `Cmd+V` on a Mac). **Never make port 3000 public.**
