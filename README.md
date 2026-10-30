@@ -40,8 +40,8 @@
 
 In workshop 3, the model searched the documents again at every question, and it kept nothing of
 what it found. Today, the work is done **before** the question: the model writes pages, a person
-checks them, and the chatbot reads what is already organised. Then you pack everything you built
-into one file. The question of the day is:
+decides what to keep, and the chatbot reads what is already organised. Then you pack everything you
+built into one file. The question of the day is:
 
 > **How do you keep knowledge clean when it grows?**
 
@@ -107,8 +107,10 @@ All of these are in your Codespace, in the file list on the left, once Part 1 is
 ### Step 1 - Open your Codespace and save your key
 
 Follow [SETUP.md](SETUP.md#setup), steps 1 to 5, with the link at the top of this page: let the
-Codespace wait for you, open it, save your key with `workshop-login`, check `Key OK`, and open a
-second terminal.
+Codespace wait for you, open it, save your key with `workshop-login`, check `Key OK`, have a first
+conversation with `workshop bare`, and open a second terminal. In a new Codespace, the first
+`workshop E` asks once more whether you trust the folder: press the **down arrow** to choose
+`Yes, I trust this folder`, then **Enter**. If Claude Code closed, type `workshop E` again.
 
 > 💡 **If you use OpenCode.** Same commands, after `workshop-login --engine opencode`. It asks you
 > before every shell command and every file it writes, so `ingest` means more "allow" answers.
@@ -122,14 +124,19 @@ second terminal.
 
 ### Step 2 - Bring back your work
 
-1. **Drag `my-work.zip`** from your computer into the file list of the Codespace.
+1. **Drag `my-work.zip`** from your computer into the file list of the Codespace. If you
+   downloaded it more than once, your browser may have named the newest one `my-work (1).zip`:
+   drag that one, and type its exact name between quotes, for example
+   `workshop-start 5 --from "my-work (1).zip"`.
 2. In your first terminal, type:
 
    ```bash
    workshop-start 5 --from my-work.zip
    ```
 
-   Without a save, type `workshop-start 5`. You should see your files restored, then:
+   Without a save, type `workshop-start 5`. With a save, you should see `Restored from my-work.zip
+   (saved on …)`: check that this date is the end of workshop 4. If it is older, this is an old save:
+   tell the facilitator. Then you see your files restored, and:
 
    ```
    Prepared for this workshop:
@@ -227,7 +234,8 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
 1. Find your number. With a save, it is the summary you signed in workshop 3: usually **81**, or
    **80** if your page was refused that day. Open `summaries/index.md`: under "Added during the
    session", your line must say (human-reviewed). If it says (draft, not verified), you will ingest
-   the official text instead (Step 4). Without a save, it is Benevento, number **80**.
+   the official text of your document instead (Step 4). Without a save, or with no line there, it is
+   Benevento: look in `corpus/` for the file `8N-benevento-aib-2026.pdf`; its number is usually **80**.
 2. Look at `wiki/index.md`, and **write down the pages you expect your document to feed**.
 3. In your first terminal, type, with your number:
 
@@ -320,14 +328,16 @@ asked a pair for 6 permissions, and the gauge reached about 26,000 tokens.
 
 Run it now, after `ingest`, so that the answers can use your document.
 
-1. In your second terminal, once `openwebui start` has finished, type (if it has not finished, open
+1. **Predict** on paper: will questions 3, 10, 11 and 12 score better in column E than in your
+   earlier columns? Will the gauge be smaller than in mode C? You check it in Part 5.
+2. In your second terminal, once `openwebui start` has finished, type (if it has not finished, open
    a third terminal):
 
    ```bash
    replay E
    ```
 
-2. It runs by itself, and the answers wait for you in Part 5. In the same test (image 2026.10.34, in
+3. It runs by itself, and the answers wait for you in Part 5. In the same test (image 2026.10.34, in
    a container, no person answering), it took 1 min 57 and cost $0.36 for the 11 questions of the
    kit, with no question 12.
 
@@ -556,8 +566,8 @@ measured that.
 
 ### To go further (if time allows, paid)
 
-Ask the chatbot the same check in `workshop E`, then click the grey line above the answer, which sums
-up its steps: did it open the originals?
+Ask the chatbot the same check in `workshop E`, then press **Ctrl+O** to see its steps (**Ctrl+O**
+again to come back): did it open the originals?
 
 ```
 Compare the clearing distances of the Montoro ordinance and of the French brush-clearing obligation. Check the figures in the original documents (corpus/text/) and give their sources.
@@ -594,8 +604,8 @@ For each question, the judge proposes a score. Press Enter to accept it, or type
 
 Open `scores.md`. Each workshop scored only some questions, so **the Total row means nothing here**.
 Read across the rows: for 3, 11 and 12, compare column C with column E; for 10, the earlier columns
-with column E. Did the score change, and how much context did it use? Each answer in `answers/` has
-a line `Context: … tokens`: compare it in your `answers/C-…` and `answers/E-…` files. **The same score
+with column E. Did the score change, as you predicted, and how much context did it use? Each answer
+in `answers/` has a line `Context: … tokens`: compare it in your `answers/C-…` and `answers/E-…` files. **The same score
 with a smaller gauge is a result.** Without a save, compare with a neighbouring pair. The facilitator's
 reference scores, to compare with yours, are not ready yet: TO BE COMPLETED.
 
@@ -609,7 +619,7 @@ This whole series asked one question: **what enters the model's context, when, a
 | 2 | everything (mode B), or pieces (RAG) | at the start, or at each question | nobody, or a search engine |
 | 3 | what the model opens, and a skill | step by step | the model; a person signs the summary |
 | 4 | the answer of a tool | when the model calls it | the model; you allowed the tool |
-| 5 | pages written in advance | step by step | the model writes, a person checks |
+| 5 | pages written in advance | step by step | the model writes, a person decides |
 
 **Key insight:** whatever the tool, the same question applies: what enters the context, when, and
 who decides?
@@ -672,7 +682,9 @@ Two more options are on the slides of the facilitator:
 ### Step 6 - Save your work, fill in the exit card
 
 1. Type `workshop-save`, then right-click on `my-work.zip` → **Download...**. A Codespace stops by
-   itself, and it is deleted after 30 days of inactivity: only the files you downloaded remain.
+   itself, and it is deleted after 30 days of inactivity: only the files you downloaded remain. If
+   your computer already has a `my-work.zip`, the new one may be called `my-work (1).zip`: keep the
+   newest.
 
    ![1: my-work.zip in the file list. 2: the item Download... of the menu that opens with a right-click.](images/download-zip.png)
 
@@ -704,6 +716,12 @@ personal accounts on 2026-11-17 and removes them on 2026-12-17, and claude.ai is
 read the rules of a tool before you plan a session with young people. Flowise and Langflow connect
 blocks on a canvas; LangChain, LlamaIndex and the Claude Agent SDK are for code. To keep the pieces in a folder
 of your own: [OpenCode guide, Your own chatbot](https://github.com/Youth-AI-Lab/yal-opencode-guide#your-own-chatbot).
+
+> ⚠️ **Important.** The key of your pair was given by the facilitator for the series: it may stop
+> working after it, so ask the facilitator. To go on, you need a key of your own, with credits bought by card:
+> [Open WebUI guide, Your Anthropic API key](https://github.com/Youth-AI-Lab/yal-openwebui-guide#your-anthropic-api-key).
+> Without a card, a model can run on a computer of your organisation, with no key and no cost per
+> question: [local AI guide, Is this guide for you?](https://github.com/Youth-AI-Lab/yal-local-ai-guide#is-this-guide-for-you).
 
 **This is the end of the series.** Go back to [the five workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series), or try
 another way to build a chatbot with [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).

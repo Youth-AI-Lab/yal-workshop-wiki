@@ -13,9 +13,13 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 
 1. Idle timeout not set yet on this account? First: [SETUP.md, step 1](SETUP.md#step-1---let-the-codespace-wait-for-you).
 2. Open the Codespace: **https://codespaces.new/Youth-AI-Lab/yal-workshop-wiki** → **Create codespace**.
-3. Terminal 1: `workshop-login`, paste the key once, Enter → you see `Key OK`.
-4. Drag `my-work.zip` into the file list. Terminal 1: `workshop-start 5 --from my-work.zip`
-   (without a save: `workshop-start 5`) → `Ready for workshop 5`.
+3. Terminal 1: `workshop-login`, paste the key once, Enter → you see `Key OK`. Then `workshop bare`:
+   first screens, trust the folder (down arrow, `Yes, I trust this folder`), `Ctrl+C` twice.
+4. Drag `my-work.zip` into the file list (the newest: maybe `my-work (1).zip`, then type its exact
+   name between quotes). Terminal 1: `workshop-start 5 --from my-work.zip` (without a save:
+   `workshop-start 5`) → `saved on …` is the end of workshop 4? Older: tell the facilitator. Then
+   `Ready for workshop 5`. The first `workshop E` asks again to trust the folder: **down arrow**,
+   `Yes, I trust this folder`, Enter.
 5. Terminal 2: `openwebui start`. Do not wait: it ends by itself.
 
 ## 2. The wiki (30 min)
@@ -23,14 +27,15 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 1. `wiki/index.md`, then `wiki/wildfire-prevention-ordinance-montoro.md`, with `Ctrl+Shift+V`:
    footnotes. Without the preview: `sources` and `generated` in the header.
 2. `wiki/log.md`: choose one `Contradiction` line, find its two sources.
-3. Your number: 81 (80 if your page was refused; without a save, 80). In `summaries/index.md`, your
-   line says (human-reviewed). Write down the pages you expect it to feed. Terminal 1:
-   `wiki-graph --highlight 81` → `No page cites a document…`
+3. Your number: 81 (80 if your page was refused). In `summaries/index.md`, your line says
+   (human-reviewed). Without a save, or no line there: Benevento, the number of
+   `corpus/8N-benevento-aib-2026.pdf`, usually 80. Write down the pages you expect it to feed. Terminal 1: `wiki-graph --highlight 81` → `No page cites a document…`
 4. `workshop E`: `ingest summaries/81-….md into the wiki` (without a save:
    `ingest corpus/80-benevento-aib-2026.pdf into the wiki`) → `Skill(ingest)`. Only what you signed,
    or the official text. Read each write, **1. Yes**, never 2. Read the report. Leave.
 5. `wiki-graph --highlight 81` → `In orange: …`. `wiki/graph.md`, `Ctrl+Shift+V`: look at the orange.
-6. Terminal 2, once `openwebui start` has finished: `replay E`.
+6. Predict: 3, 10, 11, 12 better in E? A smaller gauge than in C? Terminal 2, once `openwebui start`
+   has finished: `replay E`.
 
 ## 3. The lint (15 min)
 
@@ -55,9 +60,10 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 
 1. `score E 3 10 11 12` (no question 12: `score E 3 10 11`).
 2. `scores.md`: the rows, not the Total. 3, 11, 12: C against E. 10: earlier columns against E.
+   As you predicted?
 3. `chatbot-export --name "<your chatbot>"` → right-click on the `.zip` → **Download...**.
 4. Terminal 2: `openwebui chatbot --name "<your chatbot>"` → ask your question 12.
-5. `workshop-save` → right-click on `my-work.zip` → **Download...**. Then the exit card, alone. To go on: [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
+5. `workshop-save` → right-click on `my-work.zip` → **Download...** (keep the newest). Then the exit card, alone. To go on: [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
 
 **Leave a conversation:** `Ctrl+C` twice. **Copy / paste in the terminal:** `Ctrl+Shift+C` /
 `Ctrl+Shift+V` (`Cmd+C` / `Cmd+V` on a Mac). **Never make port 3000 public.**
