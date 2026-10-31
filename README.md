@@ -74,6 +74,8 @@ In the WikiYouthBot activity, the chatbot is built in a tool with **two boxes**:
 *Knowledge*. You can already do it today with Open WebUI: see the
 [Open WebUI guide, What a chatbot is made of](https://github.com/Youth-AI-Lab/yal-openwebui-guide#what-a-chatbot-is-made-of).
 Part 2 gives clean pages for the *Knowledge* box, and Part 5 puts everything back in the two boxes.
+The activity sheet is [here](https://github.com/Youth-AI-Lab/deliverables/blob/master/Ideation_Sheets/YouthAiLab_Template_Explorations_Ideation_Sheet_WikiYouthBot.pdf) (PDF), and [here](https://youth-ai-lab.github.io/wikiyouthbot/) is what young people built with it in
+La Rochelle, in July 2026.
 
 The series ends here, one piece of the chatbot at a time:
 
@@ -756,4 +758,4 @@ Texts and screenshots: [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt). Configuration 
 [EUPL-1.2](LICENSES/EUPL-1.2.txt). The official documents are not ours and are not covered: see
 [their note](LICENSES/LicenseRef-Third-Party.txt) and [`REUSE.toml`](REUSE.toml).
 
-*Youth AI Lab (Erasmus+) - Workshop 5 of the series "Customising a chatbot" - 2026*
+*Youth AI Lab (Erasmus+) - Workshop 5 of the series "Build your own chatbot" - 2026*
