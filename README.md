@@ -1,11 +1,11 @@
 # Workshop 5 - Organise what it knows
 
-### Youth AI Lab (Erasmus+) - series "Build your own chatbot", workshop 5 of 5
+### Youth AI Lab (Erasmus+) - series "Build your own chatbot", workshop 5 of 6
 
 - **Project:** Youth AI Lab (Erasmus+), with five partners: L.A.B. (Aix-en-Provence, France),
   UAB (Barcelona, Spain), Perlatecnica (Naples, Italy), Digitale Wolven (Antwerp, Belgium),
   CSC Vent des Îles (La Rochelle, France).
-- **The series:** [the five workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series)
+- **The series:** [the six workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series)
 - **Need help?**
   - Raise your hand and ask the facilitator.
   - If something breaks, don't panic: your files stay in the Codespace.
@@ -29,7 +29,7 @@
 - [Part 2 - The wiki (★★★, 30 min)](#part-2---the-wiki--30-min)
 - [Part 3 - The lint (★★, 15 min)](#part-3---the-lint--15-min)
 - [Part 4 - The graph (★★, 25 min)](#part-4---the-graph--25-min)
-- [Part 5 - Closing of the series (20 min)](#part-5---closing-of-the-series-20-min)
+- [Part 5 - Closing: the chatbot you built (20 min)](#part-5---closing-the-chatbot-you-built-20-min)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -86,6 +86,7 @@ The series ends here, one piece of the chatbot at a time:
 - **Workshop 3**: the model searches by itself, and skills
 - **Workshop 4**: tools that act outside, such as today's fire danger level
 - **Workshop 5** (this one): organise what it knows in a wiki, and pack the chatbot of your territory
+- **Workshop 6**: fine-tune a small model, to sort messages before the chatbot
 
 ### Before you start
 
@@ -589,7 +590,7 @@ The graph took a model about 10 minutes for 18 pages, and your document is alrea
 
 ---
 
-## Part 5 - Closing of the series (20 min)
+## Part 5 - Closing: the chatbot you built (20 min)
 
 **Goal**: read what your scores say, pack your chatbot, and see it in another tool.
 
@@ -727,7 +728,8 @@ of your own: [OpenCode guide, Your own chatbot](https://github.com/Youth-AI-Lab/
 > Without a card, a model can run on a computer of your organisation, with no key and no cost per
 > question: [local AI guide, Is this guide for you?](https://github.com/Youth-AI-Lab/yal-local-ai-guide#is-this-guide-for-you).
 
-**This is the end of the series.** Go back to [the five workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series), or try
+Your chatbot is finished. **Next:** [Workshop 6 - Teach a small model to sort messages](https://github.com/Youth-AI-Lab/yal-workshop-finetune): you change a model
+yourself, and it needs nothing from today. Go back to [the six workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series), or try
 another way to build a chatbot with [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
 
 ---

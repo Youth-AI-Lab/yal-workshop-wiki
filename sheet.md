@@ -56,7 +56,7 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 5. `wiki-explore path "Benevento" "Montoro"` → `No node matching 'Benevento' found.`: a snapshot.
    Does the graph make the chatbot faster? Discuss, then see the table in the README.
 
-## 5. Closing of the series (20 min)
+## 5. Closing: the chatbot you built (20 min)
 
 1. `score E 3 10 11 12` (no question 12: `score E 3 10 11`).
 2. `scores.md`: the rows, not the Total. 3, 11, 12: C against E. 10: earlier columns against E.
