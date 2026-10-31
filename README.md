@@ -209,8 +209,8 @@ documents say on one topic is in one place.
 
 In mode E, the model is told to read `wiki/index.md` first, then the relevant pages, and to search
 the sources only if the wiki is not enough. It also keeps the tools of workshop 4. As in the other
-workshops, the **gauge** shows how many tokens (pieces of words) the model read, and the **context
-window** is the most it can hold.
+workshops, the **gauge** shows how many tokens (pieces of words) are in the context right now, and the
+**context window** is the most it can hold.
 
 **Key insight:** the work is done once, before the question. Every fact keeps its way back to a
 source. And when two sources disagree, the wiki keeps both.
