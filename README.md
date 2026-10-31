@@ -29,7 +29,7 @@
 - [Part 2 - The wiki (★★★, 30 min)](#part-2---the-wiki--30-min)
 - [Part 3 - The lint (★★, 15 min)](#part-3---the-lint--15-min)
 - [Part 4 - The graph (★★, 25 min)](#part-4---the-graph--25-min)
-- [Part 5 - Closing: the chatbot you built (20 min)](#part-5---closing-the-chatbot-you-built-20-min)
+- [Part 5 - The chatbot you built (20 min)](#part-5---the-chatbot-you-built-20-min)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -107,7 +107,7 @@ All of these are in your Codespace, in the file list on the left, once Part 1 is
 
 ## Part 1 - Welcome (20 min)
 
-**Goal**: open the Codespace, bring back your work, and start Open WebUI for the closing.
+**Goal**: open the Codespace, bring back your work, and start Open WebUI for Part 5.
 
 ### Step 1 - Open your Codespace and save your key
 
@@ -156,7 +156,7 @@ conversation with `workshop bare`, and open a second terminal. In a new Codespac
 
 ### Step 3 - Start Open WebUI in the background
 
-At the closing, you will see your finished chatbot in Open WebUI. Its first start takes a few
+In Part 5, you will see your finished chatbot in Open WebUI. Its first start takes a few
 minutes (3 min 21 in a Codespace on 2026-10-26, older image): start it now.
 
 1. In your second terminal, type:
@@ -590,7 +590,7 @@ The graph took a model about 10 minutes for 18 pages, and your document is alrea
 
 ---
 
-## Part 5 - Closing: the chatbot you built (20 min)
+## Part 5 - The chatbot you built (20 min)
 
 **Goal**: read what your scores say, pack your chatbot, and see it in another tool.
 
