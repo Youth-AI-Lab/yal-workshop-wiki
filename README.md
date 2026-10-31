@@ -79,7 +79,7 @@ The activity sheet is a PDF:
 What young people built with it in La Rochelle, in July 2026, is on
 [the WikiYouthBot site](https://youth-ai-lab.github.io/wikiyouthbot/).
 
-The series ends here, one piece of the chatbot at a time:
+The whole series, one piece of the chatbot at a time:
 
 - **Workshop 1**: the instructions, and how to test a chatbot
 - **Workshop 2**: all the knowledge in the context, then a RAG
@@ -203,9 +203,13 @@ flowchart LR
   P -->|"read next"| M
 ```
 
+You already have summaries, so why pages? A summary follows one document. A wiki page follows one
+**topic**: a document can feed several pages, and a page can quote several documents. So what the
+documents say on one topic is in one place.
+
 In mode E, the model is told to read `wiki/index.md` first, then the relevant pages, and to search
-the sources only if the wiki is not enough. It also keeps the tool of workshop 4. As in the other
-workshops, the **gauge** shows how many tokens (pieces of text) the model read, and the **context
+the sources only if the wiki is not enough. It also keeps the tools of workshop 4. As in the other
+workshops, the **gauge** shows how many tokens (pieces of words) the model read, and the **context
 window** is the most it can hold.
 
 **Key insight:** the work is done once, before the question. Every fact keeps its way back to a
@@ -229,20 +233,25 @@ source. And when two sources disagree, the wiki keeps both.
 
 Open `wiki/log.md`, and press `Ctrl+Shift+V`: one line per change, `Creation`, `Update` or
 `Contradiction`. There are 6 lines `Contradiction`: press `Ctrl+F` and search this word. Choose one,
-read it in your pair, and find the two sources it names.
+read it in your pair, and find the two sources it names. Look at what differs: the figure, or the
+scope?
 
 The rule of the skill `ingest`: the model writes "According to one source, X; according to another,
 Y", with a footnote on each. It does not choose, it drops nothing, and it rewords nothing.
 
 #### Step 3 - Predict before you ingest
 
-1. Find your number. With a save, it is the summary you signed in workshop 3: usually **81**, or
-   **80** if your page was refused that day. Open `summaries/index.md`: under "Added during the
-   session", your line must say (human-reviewed). If it says (draft, not verified), you will ingest
-   the official text of your document instead (Step 4). Without a save, or with no line there, it is
-   Benevento: look in `corpus/` for the file `8N-benevento-aib-2026.pdf`; its number is usually **80**.
+1. Find your number: each document and summary has one at the start of its file name, and you need
+   it to find your document in the drawing. With a save, it is the summary you signed in workshop 3:
+   usually **81**, or **80** if your page was refused that day. Open `summaries/index.md`: under
+   "Added during the session", your line must say (human-reviewed). If it says (draft, not verified),
+   you will ingest the official text of your document instead (Step 4). Without a save, or with no
+   line there, it is Benevento: look in `corpus/` for the file `8N-benevento-aib-2026.pdf`; its number
+   is usually **80**.
 2. Look at `wiki/index.md`, and **write down the pages you expect your document to feed**.
-3. In your first terminal, type, with your number:
+3. `wiki-graph` uses no model. It reads the pages of the wiki and writes a drawing, `wiki/graph.md`,
+   with a box for each page and a shape for each source document. `--highlight` names the document to
+   paint in orange, with the pages that cite it. In your first terminal, type, with your number:
 
    ```bash
    wiki-graph --highlight 81
@@ -254,6 +263,10 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
    Wrote wiki/graph.md: 18 pages, 20 source documents.
    No page cites a document matching '81' yet. Has it been ingested? (ask the chatbot: "ingest summaries/<file>")
    ```
+
+   The second line is what you want at this stage: no page cites your document yet.
+   `18 pages, 20 source documents` is the wiki before your change. In Step 5 you type the same
+   command again, and you compare.
 
 #### Step 4 - Ingest your document
 
@@ -289,7 +302,11 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
 2. Look for the line `Skill(ingest)`. The skill reads the schema and the index, goes through the
    topics of the document, usually 1 to 5, updates or creates a page for each, compares every figure
    and its scope with the wiki, and adds lines to `wiki/log.md`.
-3. Each time it wants to write, read what it writes, then accept with **1. Yes**.
+3. Each time it wants to write, read what it writes. In a page of the wiki, does each new fact end
+   with a footnote `[^…]`? Is each figure the one in your document? (The header of a page, the index
+   and the log have no footnotes.) If so, accept with **1. Yes**. If something is wrong, choose
+   **3. No**: `User rejected update to …` appears, nothing is written, and the model stops. Type what
+   is wrong and press Enter: it receives your sentence and goes on from there.
 
    ![Another change to the same page, at the top of the file. The red line starting with - is removed. 1: the green lines starting with +, which it adds: the new source and the new date. 2: 1. Yes. 3: option 2, never choose it.](images/permission-edit-sources.png)
 
@@ -299,6 +316,11 @@ In our test on 2026-10-30 (image 2026.10.34, in a container, not a Codespace, pe
 automatically), ingesting the document of Benevento took 42 seconds and cost $0.14: one page created,
 one updated, the index, and the log, with a contradiction that nobody had placed there. It would have
 asked a pair for 6 permissions, and the gauge reached about 26,000 tokens.
+
+> ℹ️ **Note.** **How to read our measures.** The **image** is the ready-made environment behind a
+> Codespace, and its number is its version. **In a container** means this same environment, started
+> outside a Codespace. No person answered the permissions, so the time of your own reading is not
+> counted. Each "same test" below ran in these conditions. Your numbers will differ.
 
 #### Step 5 - See where it went
 
@@ -333,8 +355,18 @@ asked a pair for 6 permissions, and the gauge reached about 26,000 tokens.
 
 Run it now, after `ingest`, so that the answers can use your document.
 
-1. **Predict** on paper: will questions 3, 10, 11 and 12 score better in column E than in your
-   earlier columns? Will the gauge be smaller than in mode C? You check it in Part 5.
+1. **Predict** on paper. Each question tests something different:
+
+   | # | What it tests |
+   |---|---|
+   | 3 | a fact that only the full text of an official document gives |
+   | 10 | two sources disagree: the chatbot must point out the contradiction, not choose |
+   | 11 | a fact from a document you added: the document of Benevento |
+   | 12 | a precise fact about your territory, with its source |
+
+   Will these four score better in column E than in your earlier columns? Will the gauge be smaller
+   than in mode C? If you ingested your own document, Benevento is not in the wiki: will the chatbot
+   go back to the sources for question 11? You check it in Part 5.
 2. In your second terminal, once `openwebui start` has finished, type (if it has not finished, open
    a third terminal):
 
@@ -342,9 +374,10 @@ Run it now, after `ingest`, so that the answers can use your document.
    replay E
    ```
 
-3. It runs by itself, and the answers wait for you in Part 5. In the same test (image 2026.10.34, in
-   a container, no person answering), it took 1 min 57 and cost $0.36 for the 11 questions of the
-   kit, with no question 12.
+3. It runs by itself: the terminal shows each question as it goes, then a line `Answers: …` with the
+   cost. Do not wait for it: go on with Part 3 in your first terminal. The answers wait for you in
+   Part 5. In the same test, it took 1 min 57 and cost $0.36 for the 11 questions of the kit, with no
+   question 12.
 
 > 💡 **Tip.** **Checkpoint**: `In orange: …` in your terminal, and one `Contradiction` line of the log
 > read in your pair.
@@ -372,6 +405,20 @@ in a talk, and a listener has read the other source.)
   missing from the page), and duplicates.
 - **Proposals**: one action per line, for you to accept or refuse.
 
+### Why a wiki needs a check
+
+`ingest` works on one document and the pages of its topics. It compares figures with the wiki, but it
+never checks all the pages against their sources. So small faults can build up, change after change:
+a figure missing from a page, a sentence with no footnote, a link to a page that does not exist, two
+pages on the same topic.
+
+The skill `lint` goes through **all** the pages, goes back to their sources, and writes a report. It
+changes nothing without your agreement. This is the arrow "lint reads them, and the sources" in the
+drawing of Part 2.
+
+The lint is a model too. It can miss a problem, and it can report one that is not real. So its report
+is a list of things to check.
+
 **Key insight:** a wiki drifts, a little at each change. The lint reports, the person decides.
 
 ### What to do
@@ -392,24 +439,32 @@ in a talk, and a listener has read the other source.)
 
 3. Look for the line `Skill(lint)`. If it asks to run a command that reads files, accept with
    **1. Yes**.
-4. Watch the gauge.
+4. Watch the gauge. It climbs much higher than for `ingest`, because the lint reads all the pages and
+   goes back to the sources. This is why you started a new conversation.
 
-In the same test (image 2026.10.34, in a container, no person answering), the lint took 2 min 10 and
-cost $0.55, and the gauge reached about 137,000 tokens, 68% of the window. This is more than half of
-what we measured for a pair ($1.05 for `ingest`, `lint`, `replay E` and the judge), so run it once
-per session, not after each document.
+In the same test, the lint took 2 min 10 and cost $0.55, and the gauge reached about 137,000 tokens,
+68% of the window. This is more than half of what we measured for a pair ($1.05 for `ingest`, `lint`,
+`replay E` and the judge), so run it once per session, not after each document.
 
 #### Step 2 - Read the report
 
-The report starts with a line of counts, and its last section is `Proposals`. In our test, it changed
-nothing, listed 8 proposals, some of them cosmetic, and said itself which sources it had not read. We
-checked only one against its source, and it was right. In your pair, find one finding you can check:
-open the page it names. Is it a real problem, or a matter of taste?
+The report starts with a line of counts, and its last section is `Proposals`. In between come the
+**findings**: what the lint thinks is wrong, under headings such as `Contradictions`,
+`Statements without a valid source` and `Omissions and rewordings`. A proposal is an action it
+suggests, usually to answer a finding.
+
+In our test, it changed nothing, listed 8 proposals, some of them cosmetic, and said itself which
+sources it had not read. We checked only one against its source, and it was right.
+
+In your pair, find one finding you can check. Open the page it names, then its source in
+`corpus/text/`, and search the figure or the words with `Ctrl+F`. Is it a real problem: would someone
+reading the page get a wrong or incomplete fact? Or is it a matter of taste?
 
 #### Step 3 - Decide
 
 Choose one or two proposals to apply, or none, and say why in one sentence. Tell the model your
-choice in your own words, read each change, and accept with **1. Yes**. Leave with **Ctrl+C twice**.
+choice in your own words, and read each change: does a red line remove a figure? If not, accept with
+**1. Yes**. If it does, choose **3. No**, and tell the model. Leave with **Ctrl+C twice**.
 
 > 💡 **Tip.** **Checkpoint**: your pair can name one finding, and what you decided about it.
 
@@ -430,7 +485,8 @@ from a page, who will ever notice?)
 **Goal**: see the ideas across the pages, and check, in the sources, one link that a model guessed.
 
 The facilitator first projects two maps side by side: the drawing of Part 2 for the whole wiki, and
-the map you will now open. In Part 2, every arrow was written in a page. Here, a tool drew the
+the map you will now open. If you read this page alone, type `wiki-graph`, open `wiki/graph.md`, and
+compare it with the map of Step 1. In Part 2, every arrow was written in a page. Here, a tool drew the
 **ideas**, and it guessed some of the links.
 
 ### What you will discover
@@ -439,10 +495,14 @@ Before the session, the facilitator gave the wiki to **graphify**, a tool that h
 every page, in about 10 minutes, and draws a **knowledge graph**: a map of the ideas and of the links
 between them.
 
+`wiki/index.md` lists the pages, and the drawing of Part 2 shows what each page links to and cites.
+Neither shows two pages, in two countries, that speak of a similar rule when no link joins them. A
+knowledge graph looks for this, so that you can explore what your documents say together, and see
+where documents are missing.
+
 - **A node** is a point of the map: a page, a rule, an organisation, an idea. **An edge** is a line
   between two nodes.
-- **A community** is a group of strongly linked nodes, found by a calculation. **A hub** is one of the
-  most connected nodes.
+- **A community** is a group of strongly linked nodes, found by a calculation.
 - **`EXTRACTED`** marks an edge written in a page. **`INFERRED`** marks an edge guessed by the model:
   a suggestion, not a fact.
 - **A snapshot** is a picture taken at one moment: this graph does not change when the wiki does.
@@ -464,20 +524,24 @@ Our graph has 82 nodes, 132 edges and 7 communities; 115 edges are `EXTRACTED`, 
 
    You should see `The map of the wiki is open at: http://localhost:8765`, and a new browser tab. If
    no tab opens: Ports tab (bottom panel), 8765, Open in Browser.
-2. On the right, tick or untick the `Communities`. In `Search nodes...`, type `Montoro`. Click a
-   node on the map to see its links in `Node Info`. If you click a name in the search results
-   instead, the search box empties: this is normal. To close the map, later: `wiki-explore stop`.
+2. Each colour on the map is a community. On the right, tick or untick the `Communities`, and look
+   at what the calculation put together: do these groups make sense to you? In `Search nodes...`, type
+   `Montoro`. Click a Montoro node on the map: `Node Info` lists the nodes joined to it. Does one of
+   them come from another country? If you click a name in the search results instead, the search box
+   empties: this is normal. To close the map, later: `wiki-explore stop`.
 
    ![The map of the wiki in the browser. 1: Communities, here with five of them unticked, so your map shows more. 2: Montoro typed in the box Search nodes. 3: the node clicked on the map, in white, and its links in Node Info, Neighbors (3).](images/wiki-map.png)
 
 #### Step 2 - Read the report
 
 1. Open `wiki/graphify-out/GRAPH_REPORT.md`, and press `Ctrl+Shift+V`.
-2. Read `Corpus Check` first: `Corpus is ~16,359 words - fits in a single context window. You may
-   not need a graph.` What do you make of that?
-3. Read `Surprising Connections`, and choose one that surprises you. Say to your pair whether you
-   believe it. Step 3 takes one of these links, Montoro and the French brush clearing, and Step 4
-   checks it.
+2. Read `Corpus Check` first (here, `Corpus` means the pages of the wiki, not the folder `corpus/`):
+   `Corpus is ~16,359 words - fits in a single context window. You may not need a graph.` What do
+   you make of that?
+3. Read `Surprising Connections`: links the report thinks you did not know. Each item reads
+   `first node --kind of link--> second node`, then gives the two pages. `[INFERRED]` says that the
+   model guessed the link. Choose one that surprises you, and say to your pair whether you believe
+   it. Step 3 takes one of these links, Montoro and the French brush clearing, and Step 4 checks it.
 
 #### Step 3 - Ask the graph
 
@@ -578,7 +642,9 @@ again to come back): did it open the originals?
 Compare the clearing distances of the Montoro ordinance and of the French brush-clearing obligation. Check the figures in the original documents (corpus/text/) and give their sources.
 ```
 
-Or type `replay F 1 3 10`, and compare with the same questions in your `answers/E-…` file.
+Or type `replay F 1 3 10`, and compare with the same questions in your `answers/E-…` file: the lines
+`Context: … tokens` and `What the model did:`. Did it query the graph (`called the MCP tool …`) before
+it read the pages?
 
 ### Think about it
 
@@ -596,8 +662,10 @@ The graph took a model about 10 minutes for 18 pages, and your document is alrea
 
 ### Step 1 - Score column E
 
-Open the answers of `replay E` in `answers/`: the line `What the model did:` lists what it read. Then
-score the questions of today, with the help of the judge (no question 12: `score E 3 10 11`):
+Open the answers of `replay E` in `answers/`: the line `What the model did:` lists what it read. Did it
+start with `wiki/index.md`, then a page of `wiki/`? Did it also look in `summaries/` or `corpus/text/`?
+This is what it was told to do if the wiki is not enough. Then score the questions of today, with the
+help of the judge (no question 12: `score E 3 10 11`):
 
 ```bash
 score E 3 10 11 12
@@ -610,9 +678,10 @@ For each question, the judge proposes a score. Press Enter to accept it, or type
 Open `scores.md`. Each workshop scored only some questions, so **the Total row means nothing here**.
 Read across the rows: for 3, 11 and 12, compare column C with column E; for 10, the earlier columns
 with column E. Did the score change, as you predicted, and how much context did it use? Each answer
-in `answers/` has a line `Context: … tokens`: compare it in your `answers/C-…` and `answers/E-…` files. **The same score
-with a smaller gauge is a result.** Without a save, compare with a neighbouring pair. The facilitator's
-reference scores, to compare with yours, are not ready yet: TO BE COMPLETED.
+in `answers/` has a line `Context: … tokens`: compare it in your `answers/C-…` and `answers/E-…`
+files. **The same score with a smaller gauge is a result**: the chatbot answers as well, it reads
+less, and each question costs less. Without a save, compare with a neighbouring pair. The
+facilitator's reference scores, to compare with yours, are not ready yet: TO BE COMPLETED.
 
 ### Step 3 - The question of the series, answered
 
@@ -663,7 +732,9 @@ Two more options are on the slides of the facilitator:
 
 ### Step 5 - Show it in Open WebUI
 
-1. In your second terminal, type, with the name of your chatbot:
+1. `openwebui chatbot` fills the two boxes for you. It packs your chatbot again, as in Step 4: your
+   `AGENTS.md` goes in the *Instructions* box, and your summaries, wiki pages and documents in the
+   *Knowledge* box of a new chatbot. In your second terminal, type, with the name of your chatbot:
 
    ```bash
    openwebui chatbot --name "Feurisson"
@@ -672,12 +743,14 @@ Two more options are on the slides of the facilitator:
    It took 50 seconds for 58 files on 2026-10-22 (on a local machine, older image; in a Codespace:
    TO BE COMPLETED). It is done when you see `Ready. In Open WebUI (…): New Chat, then choose
    "Feurisson chatbot" in the message box (bottom right).`
-2. Open the address, choose your chatbot, and ask your question 12. It now has your wiki pages too,
-   and it searches them itself.
+2. Open the address, choose your chatbot, and ask your question 12 or, with no question 12, one of
+   the questions of today. It now has your wiki pages too and, as in mode E, the model decides itself
+   when to search. Does the answer give its source? Is it as good as in your `answers/E-…` file?
 
    ![Open WebUI, an empty conversation. 1: the button at the bottom right of the message box, which shows the model in use. 2: your chatbot in the list that opens.](images/chatbot-picker.png)
 
-3. In your pair, say what you would change before a group uses it.
+3. In your pair, say what you would change before a group uses it. Start from what you saw in your
+   answers and your scores.
 
 > 🚫 **Warning.** **Never make port 3000 public** to share it. For a group, see the Open WebUI guide:
 > [Test before you open](https://github.com/Youth-AI-Lab/yal-openwebui-guide#part-3---test-before-you-open),
@@ -693,7 +766,7 @@ Two more options are on the slides of the facilitator:
 
    ![1: my-work.zip in the file list. 2: the item Download... of the menu that opens with a right-click.](images/download-zip.png)
 
-2. Answer on the card of the facilitator, alone, in a few words:
+2. Take a blank card or a half sheet from the facilitator. This is your **exit card**. Answer alone, in a few words:
    1. Why does the wiki keep two figures that disagree?
    2. What is the difference between `EXTRACTED` and `INFERRED`, and who checks?
    3. Who wrote what the chatbot reads in mode E, when, and who decides?
@@ -744,7 +817,7 @@ The common problems are in the [Troubleshooting of SETUP.md](SETUP.md#troublesho
 **`No page cites a document matching '…' yet. Has it been ingested?…`** - Normal before `ingest`.
 After it: check your number, and read the report of the skill.
 
-**The map does not open.** - Ports tab, 8765, then the globe icon. The map needs the internet;
+**The map does not open.** - Ports tab, 8765, Open in Browser. The map needs the internet;
 `wiki-explore path`, `wiki-explore explain` and the report do not.
 
 **`No node matching '…' found.`** - Copy the name from the map or from the report. What you ingested

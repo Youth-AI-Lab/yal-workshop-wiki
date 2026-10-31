@@ -32,7 +32,7 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
    `corpus/8N-benevento-aib-2026.pdf`, usually 80. Write down the pages you expect it to feed. Terminal 1: `wiki-graph --highlight 81` → `No page cites a document…`
 4. `workshop E`: `ingest summaries/81-….md into the wiki` (without a save:
    `ingest corpus/80-benevento-aib-2026.pdf into the wiki`) → `Skill(ingest)`. Only what you signed,
-   or the official text. Read each write, **1. Yes**, never 2. Read the report. Leave.
+   or the official text. Read each write: footnotes, figures. **1. Yes**, or **3. No** and say what is wrong, never 2. Read the report. Leave.
 5. `wiki-graph --highlight 81` → `In orange: …`. `wiki/graph.md`, `Ctrl+Shift+V`: look at the orange.
 6. Predict: 3, 10, 11, 12 better in E? A smaller gauge than in C? Terminal 2, once `openwebui start`
    has finished: `replay E`.
@@ -40,8 +40,10 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 ## 3. The lint (15 min)
 
 1. New `workshop E`: `lint the wiki` → `Skill(lint)`. Watch the gauge. Once per session.
-2. `Proposals`, at the end of the report. Open the page of one finding: a real problem, or taste?
-3. Choose one or two, or none, and say why. Tell the model, read each change, **1. Yes**. Leave.
+2. `Proposals`, at the end of the report. Open the page of one finding, then its source in
+   `corpus/text/`: a real problem, or taste?
+3. Choose one or two, or none, and say why. Tell the model, read each change: **1. Yes**, or
+   **3. No** if a figure is removed. Leave.
 
 ## 4. The graph (25 min)
 
@@ -62,7 +64,8 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 2. `scores.md`: the rows, not the Total. 3, 11, 12: C against E. 10: earlier columns against E.
    As you predicted?
 3. `chatbot-export --name "<your chatbot>"` → right-click on the `.zip` → **Download...**.
-4. Terminal 2: `openwebui chatbot --name "<your chatbot>"` → ask your question 12.
+4. Terminal 2: `openwebui chatbot --name "<your chatbot>"` → ask your question 12 (no question 12:
+   one of today's).
 5. `workshop-save` → right-click on `my-work.zip` → **Download...** (keep the newest). Then the exit card, alone. To go on: [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
 
 **Leave a conversation:** `Ctrl+C` twice. **Copy / paste in the terminal:** `Ctrl+Shift+C` /
