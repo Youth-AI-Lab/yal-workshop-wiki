@@ -814,16 +814,12 @@ of your own: [OpenCode guide, Your own chatbot](https://github.com/Youth-AI-Lab/
 > Without a card, a model can run on a computer of your organisation, with no key and no cost per
 > question: [local AI guide, Is this guide for you?](https://github.com/Youth-AI-Lab/yal-local-ai-guide#is-this-guide-for-you).
 
-> ⚠️ **Important.** **With young people and an OpenRouter key**, zero-data-retention models hosted in
-> Europe must be on. Zero data retention: the company says it stores nothing, and OpenRouter does not
-> guarantee it. Turn on the switches in your [privacy settings](https://openrouter.ai/settings/privacy)
-> and choose **Zero retention only** (not tested). Europe is not a switch: it needs a Business or
-> Enterprise plan, and the workshop commands cannot do it yet. No setting lifts OpenRouter's rule: "You
-> must be at least 18 years of age to use the Service." Read
-> [OpenRouter guide, Part 8](https://github.com/Youth-AI-Lab/yal-openrouter-guide#part-8---data-and-young-people)
-> before any session with young people. On 2026-11-01, the default model,
-> `deepseek/deepseek-v4-flash`, was not on OpenRouter's list for Europe, and
-> `workshop-login --model` chooses a model, not a place.
+> ⚠️ **Important.** **With young people and an OpenRouter key**, type `workshop-login --europe`.
+> Requests then go only to zero-data-retention companies (they say they store nothing) hosted in
+> Europe, with Mistral Small by default. OpenRouter itself may still handle them elsewhere. The
+> setting does not lift OpenRouter's 18+ rule or section 5.2 of its terms, and flagged content may
+> be kept. Read [OpenRouter guide, Part 8](https://github.com/Youth-AI-Lab/yal-openrouter-guide#part-8---data-and-young-people)
+> before any session with young people.
 
 Your chatbot is finished. **Next:** [Workshop 6 - Teach a small model to sort messages](https://github.com/Youth-AI-Lab/yal-workshop-finetune): you change a model
 yourself, and it needs nothing from today. Go back to [the six workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series), or try
