@@ -119,10 +119,16 @@ conversation with `workshop bare`, and open a second terminal. In a new Codespac
 
 > 💡 **If you use OpenCode.** Same commands, after `workshop-login --engine opencode`. It asks you
 > before every shell command and every file it writes, so `ingest` means more "allow" answers.
-> `wiki-graph`, `wiki-explore` and `chatbot-export` use no model. With an OpenRouter key (`sk-or-`),
-> Open WebUI and the judge of `score` do not work. We have not measured `ingest`, `lint` and
-> `replay E` with OpenCode yet: TO BE COMPLETED. The same pieces, in a chatbot folder:
+> `wiki-graph`, `wiki-explore` and `chatbot-export` use no model. We have not measured `ingest` and
+> `lint` with OpenCode yet: TO BE COMPLETED. The same pieces, in a chatbot folder:
 > [OpenCode guide, Part 4 - The knowledge](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-4---the-knowledge).
+
+> 💡 **If your key starts with `sk-or-` (OpenRouter).** Paste it in `workshop-login`, with no option:
+> the key chooses OpenCode, and `score` and Open WebUI use OpenRouter too. `openwebui chatbot`, and
+> Open WebUI with the default model, DeepSeek V4 Flash: (not tested). Compare your own columns only:
+> `score` writes the model under the table, and warns when two columns used different models. The
+> chatbot figures of this page (cost, time, gauge, scores) were measured with Claude, not with this
+> model.
 
 > ℹ️ **No Codespace?** The same repository opens on your own computer, with Docker and VS Code: see
 > the [dev containers guide, Part 3](https://github.com/Youth-AI-Lab/yal-devcontainer-guide#part-3---open-a-repository).
@@ -803,9 +809,21 @@ of your own: [OpenCode guide, Your own chatbot](https://github.com/Youth-AI-Lab/
 
 > ⚠️ **Important.** The key of your pair was given by the facilitator for the series: it may stop
 > working after it, so ask the facilitator. To go on, you need a key of your own, with credits bought by card:
-> [Open WebUI guide, Your Anthropic API key](https://github.com/Youth-AI-Lab/yal-openwebui-guide#your-anthropic-api-key).
+> [Open WebUI guide, Your Anthropic API key](https://github.com/Youth-AI-Lab/yal-openwebui-guide#your-anthropic-api-key),
+> or an OpenRouter key from your [OpenRouter account](https://openrouter.ai/settings/keys).
 > Without a card, a model can run on a computer of your organisation, with no key and no cost per
 > question: [local AI guide, Is this guide for you?](https://github.com/Youth-AI-Lab/yal-local-ai-guide#is-this-guide-for-you).
+
+> ⚠️ **Important.** **With young people and an OpenRouter key**, zero-data-retention models hosted in
+> Europe must be on. Zero data retention: the company says it stores nothing, and OpenRouter does not
+> guarantee it. Turn on the switches in your [privacy settings](https://openrouter.ai/settings/privacy)
+> and choose **Zero retention only** (not tested). Europe is not a switch: it needs a Business or
+> Enterprise plan, and the workshop commands cannot do it yet. No setting lifts OpenRouter's rule: "You
+> must be at least 18 years of age to use the Service." Read
+> [OpenRouter guide, Part 8](https://github.com/Youth-AI-Lab/yal-openrouter-guide#part-8---data-and-young-people)
+> before any session with young people. On 2026-11-01, the default model,
+> `deepseek/deepseek-v4-flash`, was not on OpenRouter's list for Europe, and
+> `workshop-login --model` chooses a model, not a place.
 
 Your chatbot is finished. **Next:** [Workshop 6 - Teach a small model to sort messages](https://github.com/Youth-AI-Lab/yal-workshop-finetune): you change a model
 yourself, and it needs nothing from today. Go back to [the six workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series), or try
