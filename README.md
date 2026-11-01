@@ -232,9 +232,9 @@ source. And when two sources disagree, the wiki keeps both.
 #### Step 2 - Read the log
 
 Open `wiki/log.md`, and press `Ctrl+Shift+V`: one line per change, `Creation`, `Update` or
-`Contradiction`. There are 6 lines `Contradiction`: press `Ctrl+F` and search this word. Choose one,
-read it in your pair, and find the two sources it names. Look at what differs: the figure, or the
-scope?
+`Contradiction`. There are 9 lines `Contradiction`: press `Ctrl+F` and search this word. Choose one,
+read it in your pair, and find the two sources it names (two lines compare two passages of one
+document). Look at what differs: the figure, or the scope?
 
 The rule of the skill `ingest`: the model writes "According to one source, X; according to another,
 Y", with a footnote on each. It does not choose, it drops nothing, and it rewords nothing.

@@ -26,7 +26,7 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
 
 1. `wiki/index.md`, then `wiki/wildfire-prevention-ordinance-montoro.md`, with `Ctrl+Shift+V`:
    footnotes. Without the preview: `sources` and `generated` in the header.
-2. `wiki/log.md`: choose one `Contradiction` line, find its two sources.
+2. `wiki/log.md`: choose one `Contradiction` line, find its two sources (or two passages of one document).
 3. Your number: 81 (80 if your page was refused). In `summaries/index.md`, your line says
    (human-reviewed). Without a save, or no line there: Benevento, the number of
    `corpus/8N-benevento-aib-2026.pdf`, usually 80. Write down the pages you expect it to feed. Terminal 1: `wiki-graph --highlight 81` → `No page cites a document…`
