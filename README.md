@@ -209,7 +209,7 @@ documents say on one topic is in one place.
 
 In mode E, the model is told to read `wiki/index.md` first, then the relevant pages, and to search
 the sources only if the wiki is not enough. It also keeps the tools of workshop 4. As in the other
-workshops, the **gauge** shows how many tokens (pieces of words) are in the context right now, and the
+workshops, the **gauge** shows how many [tokens](https://github.com/Youth-AI-Lab/yal-local-ai-guide/blob/main/how-an-llm-works.md#what-a-token-really-is) (pieces of words) are in the context right now, and the
 **context window** is the most it can hold.
 
 **Key insight:** the work is done once, before the question. Every fact keeps its way back to a
