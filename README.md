@@ -502,7 +502,11 @@ where documents are missing.
 
 - **A node** is a point of the map: a page, a rule, an organisation, an idea. **An edge** is a line
   between two nodes.
-- **A community** is a group of strongly linked nodes, found by a calculation.
+- **A community** is a group of nodes with many lines between them, and few to the rest. A
+  calculation moves nodes from group to group. It compares the lines inside the groups with what
+  chance would give, and keeps a move when the gap grows. In our graph, 103 of the 132 edges (78%)
+  stay inside a group; with lines placed at random, about 16% would. The calculation sees only lines,
+  not meaning: this is why Step 1 asks you if the groups make sense.
 - **`EXTRACTED`** marks an edge written in a page. **`INFERRED`** marks an edge guessed by the model:
   a suggestion, not a fact.
 - **A snapshot** is a picture taken at one moment: this graph does not change when the wiki does.
@@ -536,8 +540,10 @@ Our graph has 82 nodes, 132 edges and 7 communities; 115 edges are `EXTRACTED`, 
 
 1. Open `wiki/graphify-out/GRAPH_REPORT.md`, and press `Ctrl+Shift+V`.
 2. Read `Corpus Check` first (here, `Corpus` means the pages of the wiki, not the folder `corpus/`):
-   `Corpus is ~16,359 words - fits in a single context window. You may not need a graph.` What do
-   you make of that?
+   `Corpus is ~16,359 words - fits in a single context window. You may not need a graph.` The report
+   counts words, and the gauge counts tokens. On these pages, our measures give about 3 tokens per
+   word, so 16,359 × 3 ≈ 49,000 tokens: about a quarter of the context window (200,000 tokens), and
+   half of what mode B sent in workshop 2. What do you make of that?
 3. Read `Surprising Connections`: links the report thinks you did not know. Each item reads
    `first node --kind of link--> second node`, then gives the two pages. `[INFERRED]` says that the
    model guessed the link. Choose one that surprises you, and say to your pair whether you believe
