@@ -321,7 +321,8 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
 In our test on 2026-10-30 (image 2026.10.34, in a container, not a Codespace, permissions accepted
 automatically), ingesting the document of Benevento took 42 seconds and cost $0.14: one page created,
 one updated, the index, and the log, with a contradiction that nobody had placed there. It would have
-asked a pair for 6 permissions, and the gauge reached about 26,000 tokens.
+asked a pair for 6 permissions, and the gauge reached about 26,000 tokens. A second test on
+2026-11-02 (image 2026.10.45) took 46 seconds and cost $0.17, and found the same contradiction.
 
 > ℹ️ **Note.** **How to read our measures.** The **image** is the ready-made environment behind a
 > Codespace, and its number is its version. **In a container** means this same environment, started
@@ -450,7 +451,9 @@ is a list of things to check.
 
 In the same test, the lint took 2 min 10 and cost $0.55, and the gauge reached about 137,000 tokens,
 68% of the window. This is more than half of what we measured for a pair ($1.05 for `ingest`, `lint`,
-`replay E` and the judge), so run it once per session, not after each document.
+`replay E` and the judge), so run it once per session, not after each document. A second test on
+2026-11-02 (image 2026.10.45) took 72 seconds and cost $0.34: the cost of the lint changes from one
+run to the next, and it stays the most expensive step.
 
 #### Step 2 - Read the report
 
