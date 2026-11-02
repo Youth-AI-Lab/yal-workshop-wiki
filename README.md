@@ -293,7 +293,8 @@ Y", with a footnote on each. It does not choose, it drops nothing, and it reword
 >  Esc to cancel · Tab to amend
 > ```
 >
-> **Never choose 2**: you would no longer see what it writes.
+> **Never choose 2**: you would no longer see what it writes. **Never approve a command that mentions
+> `sudo` or `workshop-key`**: choose **3. No**. Such a command could read your key.
 
 ![Claude Code asks: Edit file, then the name of the wiki page. 1: the green lines, which it wants to add. 2: 1. Yes, to accept. 3: option 2, never choose it.](images/permission-edit.png)
 
