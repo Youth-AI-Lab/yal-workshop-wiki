@@ -502,7 +502,7 @@ compare it with the map of Step 1. In Part 2, every arrow was written in a page.
 ### What you will discover
 
 Before the session, the facilitator gave the wiki to **graphify**, a tool that has a model read
-every page, in about 10 minutes, and draws a **knowledge graph**: a map of the ideas and of the links
+every page, in 7 to 10 minutes, and draws a **knowledge graph**: a map of the ideas and of the links
 between them.
 
 `wiki/index.md` lists the pages, and the drawing of Part 2 shows what each page links to and cites.
@@ -514,15 +514,15 @@ where documents are missing.
   between two nodes.
 - **A community** is a group of nodes with many lines between them, and few to the rest. A
   calculation moves nodes from group to group. It compares the lines inside the groups with what
-  chance would give, and keeps a move when the gap grows. In our graph, 103 of the 132 edges (78%)
-  stay inside a group; with lines placed at random, about 16% would. The calculation sees only lines,
+  chance would give, and keeps a move when the gap grows. In our graph, 147 of the 192 edges (77%)
+  stay inside a group; with lines placed at random, about 14% would. The calculation sees only lines,
   not meaning: this is why Step 1 asks you if the groups make sense.
 - **`EXTRACTED`** marks an edge written in a page. **`INFERRED`** marks an edge guessed by the model:
   a suggestion, not a fact.
 - **A snapshot** is a picture taken at one moment: this graph does not change when the wiki does.
 
-Our graph has 82 nodes, 132 edges and 7 communities; 115 edges are `EXTRACTED`, 17 are `INFERRED`
-(built on 2026-10-21, read on 2026-10-30). `wiki-explore` calls no model: it is free.
+Our graph has 108 nodes, 192 edges and 8 communities; 170 edges are `EXTRACTED`, 22 are `INFERRED`
+(built on 2026-11-02). `wiki-explore` calls no model: it is free.
 
 **Key insight:** a graph proposes, a person checks, as for the summaries of workshop 3.
 
@@ -544,15 +544,15 @@ Our graph has 82 nodes, 132 edges and 7 communities; 115 edges are `EXTRACTED`, 
    them come from another country? If you click a name in the search results instead, the search box
    empties: this is normal. To close the map, later: `wiki-explore stop`.
 
-   ![The map of the wiki in the browser. 1: Communities, here with five of them unticked, so your map shows more. 2: Montoro typed in the box Search nodes. 3: the node clicked on the map, in white, and its links in Node Info, Neighbors (3).](images/wiki-map.png)
+   ![The map of the wiki in the browser. 1: Communities, here with six of them unticked, so your map shows more. 2: Montoro typed in the box Search nodes. 3: the node clicked on the map, in white, and its links in Node Info, Neighbors (3).](images/wiki-map.png)
 
 #### Step 2 - Read the report
 
 1. Open `wiki/graphify-out/GRAPH_REPORT.md`, and press `Ctrl+Shift+V`.
 2. Read `Corpus Check` first (here, `Corpus` means the pages of the wiki, not the folder `corpus/`):
-   `Corpus is ~16,359 words - fits in a single context window. You may not need a graph.` The report
+   `Corpus is ~16,471 words - fits in a single context window. You may not need a graph.` The report
    counts words, and the gauge counts tokens. On these pages, our measures give about 3 tokens per
-   word, so 16,359 × 3 ≈ 49,000 tokens: about a quarter of the context window (200,000 tokens), and
+   word, so 16,471 × 3 ≈ 49,000 tokens: about a quarter of the context window (200,000 tokens), and
    half of what mode B sent in workshop 2. What do you make of that?
 3. Read `Surprising Connections`: links the report thinks you did not know. Each item reads
    `first node --kind of link--> second node`, then gives the two pages. `[INFERRED]` says that the
@@ -590,7 +590,9 @@ Our graph has 82 nodes, 132 edges and 7 communities; 115 edges are `EXTRACTED`, 
    ```
 
    You should see three connections: two marked `[EXTRACTED]`, written in the page, and the one
-   above, `[INFERRED]`. Ignore the positions `L…`: they are wrong, a known limit of the tool.
+   above, `[INFERRED]`. A position such as `L40-L67` is a part of the page: the lines the model
+   pointed to when it made this node or this link. For an `[INFERRED]` link, it is where the model
+   looked. It is not a sentence that says the link.
 
 #### Step 4 - Check the guessed link yourselves
 
@@ -664,7 +666,7 @@ it read the pages?
 
 ### Think about it
 
-The graph took a model about 10 minutes for 18 pages, and your document is already missing from it.
+The graph took a model 7 to 10 minutes for 18 pages, and your document is already missing from it.
 **What does it cost to keep a graph up to date, and who checks what the model guessed?**
 
 > **You built** a verdict on a link that a model proposed. **Reused in** preparing a session: the map
