@@ -131,12 +131,9 @@ conversation with `workshop bare`, and open a second terminal. In a new Codespac
 > `lint` with OpenCode yet: TO BE COMPLETED. The same pieces, in a chatbot folder:
 > [OpenCode guide, Part 4 - The knowledge](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-4---the-knowledge).
 
-> 💡 **If your key starts with `sk-or-` (OpenRouter).** Paste it in `workshop-login`, with no option:
-> the key chooses OpenCode, and `score` and Open WebUI use OpenRouter too. `openwebui chatbot`, and
-> Open WebUI with the default model, DeepSeek V4 Flash: (not tested). Compare your own columns only:
-> `score` writes the model under the table, and warns when two columns used different models. The
-> chatbot figures of this page (cost, time, gauge, scores) were measured with Claude, not with this
-> model.
+> 💡 **If your key starts with `sk-or-` (OpenRouter).** Paste it in `workshop-login`, with no option,
+> and read [SETUP.md, With an OpenRouter key](SETUP.md#with-an-openrouter-key). Today, `openwebui chatbot`,
+> and Open WebUI with the default model, DeepSeek V4 Flash: (not tested).
 
 > ℹ️ **No Codespace?** The same repository opens on your own computer, with Docker and VS Code: see
 > the [dev containers guide, Part 3](https://github.com/Youth-AI-Lab/yal-devcontainer-guide#part-3---open-a-repository).
@@ -839,12 +836,9 @@ of your own: [OpenCode guide, Your own chatbot](https://github.com/Youth-AI-Lab/
 > Without a card, a model can run on a computer of your organisation, with no key and no cost per
 > question: [local AI guide, Is this guide for you?](https://github.com/Youth-AI-Lab/yal-local-ai-guide#is-this-guide-for-you).
 
-> ⚠️ **Important.** **With young people and an OpenRouter key**, type `workshop-login --europe`.
-> Requests then go only to Mistral, hosted in Europe, with zero data retention (it says it stores nothing).
-> The default model is `mistralai/mistral-small-2603`. OpenRouter itself may still handle them elsewhere. The
-> setting does not lift OpenRouter's 18+ rule (its support chat reads it as: no young person creates or uses their own key; this is not in its terms, so keep every key with the adults) or section 5.2 of its terms, and flagged content may
-> be kept. Read [OpenRouter guide, Part 8](https://github.com/Youth-AI-Lab/yal-openrouter-guide#part-8---data-and-young-people)
-> before any session with young people.
+> ⚠️ **Important.** **Before a chatbot with an OpenRouter key opens to young people**, read
+> [SETUP.md, Young people and OpenRouter](SETUP.md#young-people-and-openrouter): the keys stay with
+> the adults, and `workshop-login --europe` comes first.
 
 ### Where to go from here
 
