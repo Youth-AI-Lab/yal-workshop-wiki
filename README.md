@@ -750,25 +750,28 @@ Two more options are on the slides of the facilitator:
    chatbot-export --name "Feurisson"
    ```
 
-   You should see a line like this one, from our test with Benevento, without a save. Your numbers
-   will differ:
+   You should see lines like these. The numbers come from our test with Benevento, without a save,
+   plus one file for the map of the wiki. Your numbers will differ:
 
    ```
-   Wrote feurisson.zip: instructions + 57 knowledge files (17 summaries, 19 wiki pages, 21 documents).
+   Wrote feurisson.zip: instructions + 58 knowledge files (17 summaries, 19 wiki pages + their map, 21 documents).
+   In the file, the … links between wiki pages name their files (wiki__…): a chatbot tool finds a page by that name. Your wiki/ folder is not changed.
    ```
 
 2. Right-click on the `.zip` file, then **Download...**. It holds the *Instructions* box (your
-   `AGENTS.md`), the *Knowledge* box (summaries, wiki pages, readable copies of the documents), and a
-   `README.md` on how to rebuild the chatbot. Your skills and the live tool of workshop 4 are **not**
-   in it: in another tool, they have to be set up again.
+   `AGENTS.md`), the *Knowledge* box (summaries, wiki pages with their map `wiki__index.md`, readable
+   copies of the documents), your own skills of workshop 3 (not the kit's), and a `README.md` on how
+   to rebuild the chatbot. The live tool of workshop 4 is **not** in it: it is a program, not a
+   document. In another tool, it has to be set up again.
 
    ![1: feurisson.zip in the file list. 2: the item Download... of the menu that opens with a right-click.](images/download-zip-feurisson.png)
 
 ### Step 5 - Show it in Open WebUI
 
 1. `openwebui chatbot` fills the two boxes for you. It packs your chatbot again, as in Step 4: your
-   `AGENTS.md` goes in the *Instructions* box, and your summaries, wiki pages and documents in the
-   *Knowledge* box of a new chatbot. In your second terminal, type, with the name of your chatbot:
+   `AGENTS.md` goes in the *Instructions* box, and your summaries, wiki pages (with their map) and
+   documents in the *Knowledge* box of a new chatbot. It also gets the live tool of workshop 4,
+   `fire_danger`, as in mode D. In your second terminal, type, with the name of your chatbot:
 
    ```bash
    openwebui chatbot --name "Feurisson"
@@ -776,15 +779,28 @@ Two more options are on the slides of the facilitator:
 
    It took 50 seconds for 58 files on 2026-10-22 (on a local machine, older image; in a Codespace:
    TO BE COMPLETED). It is done when you see `Ready. In Open WebUI (…): New Chat, then choose
-   "Feurisson chatbot" in the message box (bottom right).`
+   "Feurisson chatbot" in the message box (bottom right).` Just before, a line says
+   `Your wiki came with its map (wiki__index.md): each link names the file of another page.`, and
+   another one names the live tool `fire_danger`.
 2. Open the address, choose your chatbot, and ask your question 12 or, with no question 12, one of
    the questions of today. It now has your wiki pages too and, as in mode E, the model decides itself
    when to search. Does the answer give its source? Is it as good as in your `answers/E-…` file?
 
+   > ℹ️ **Note.** The chatbot can start from the map, `wiki__index.md`. Each link in it is the name
+   > of a file (`wiki__…`). Open WebUI opens a file of the knowledge by an identifier, not by its
+   > name: the model first looks for that name, then opens the page. Each page it opened becomes a
+   > source of the answer. We tried this with a test model, not with Claude.
+
+   > ℹ️ **Note.** The live tool only reads `mcp/fire-danger.json`, a file filled in from public
+   > sources. It cannot write anything. If the model calls it, a line **View Result from
+   > fire-danger_fire_danger** appears above the answer: click it to see what the tool returned.
+
    ![Open WebUI, an empty conversation. 1: the button at the bottom right of the message box, which shows the model in use. 2: your chatbot in the list that opens.](images/chatbot-picker.png)
 
 3. In your pair, say what you would change before a group uses it. Start from what you saw in your
-   answers and your scores.
+   answers and your scores. The wiki now goes, whole, into the knowledge of a chatbot that other
+   people could use: before that, run the lint again and read its report
+   ([Part 3](#part-3---the-lint--15-min)), as for any change to the wiki.
 
 > 🚫 **Warning.** **Never make port 3000 public** to share it. For a group, see the Open WebUI guide:
 > [Test before you open](https://github.com/Youth-AI-Lab/yal-openwebui-guide#part-3---test-before-you-open),

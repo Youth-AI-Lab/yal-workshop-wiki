@@ -65,7 +65,8 @@ Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.m
    As you predicted?
 3. `chatbot-export --name "<your chatbot>"` → right-click on the `.zip` → **Download...**.
 4. Terminal 2: `openwebui chatbot --name "<your chatbot>"` → ask your question 12 (no question 12:
-   one of today's).
+   one of today's). It has your wiki with its map (`wiki__index.md`), your skills and the live tool
+   `fire_danger`. Before a group uses it: the lint, and a person reads its report.
 5. `workshop-save` → right-click on `my-work.zip` → **Download...** (keep the newest). Then the exit card, alone. To go on: [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
 
 **Leave a conversation:** `Ctrl+C` twice. **Copy / paste in the terminal:** `Ctrl+Shift+C` /
