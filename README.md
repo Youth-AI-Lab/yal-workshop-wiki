@@ -39,11 +39,12 @@
 ### What you will be able to do by the end of this session
 
 In workshop 3, the model searched the documents again at every question, and it kept nothing of
-what it found. Today, the work is done **before** the question: the model writes pages, a person
-decides what to keep, and the chatbot reads what is already organised. Then you pack everything you
+what it found. Today, the work is done **before** the question: the model writes pages linked to
+each other, a person decides what to keep, and the chatbot reads what is already organised. A
+person can follow the links from page to page, and so can a model. Then you pack everything you
 built into one file. The question of the day is:
 
-> **How do you keep knowledge clean when it grows?**
+> **How do you organise knowledge so that a person and a model can explore it?**
 
 | Bloom level | Parts | You will be able to... | Mode |
 |---|---|---|---|
@@ -62,6 +63,13 @@ searched, and started from zero at the next question. So every question paid for
 again. A **wiki** does this work once, in advance. It is a set of pages, one page per **topic** (a
 rule, a place, an organisation), linked together, and each fact ends with a **footnote**, a mark
 that leads to its source.
+
+Writing down what you know has always mattered. It matters even more now: a model can explore
+these pages for you, follow their links, and find what you had forgotten you knew. People call such
+a set of notes a **second brain** (the phrase comes from Tiago Forte's book *Building a Second
+Brain*). A wiki written and kept up to date by a model is an idea that Andrej Karpathy described in
+April 2026 ([LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)): this
+workshop follows it.
 
 This has a price: pages go out of date, and they can drift away from their sources. So **the model
 maintains the pages, and a person decides.** The wiki keeps a history, the **log**. The model can
@@ -234,6 +242,10 @@ source. And when two sources disagree, the wiki keeps both.
    gives the title of this source, and **See also** links to another page.
 3. Close the preview, and look at the header of the file. `sources` gives the file behind the
    footnote, here `../corpus/71-…pdf`. `generated` says which model wrote the page, and when.
+4. Back in the preview, click the **See also** link, then one link of the page it opens. In two
+   clicks, you can go from the ordinance of one Italian town to the safety reflexes in France: this
+   is how a person explores the wiki, and how the model can too, by opening the page that a link
+   names.
 
 #### Step 2 - Read the log
 
@@ -428,6 +440,10 @@ The lint is a model too. It can miss a problem, and it can report one that is no
 is a list of things to check.
 
 **Key insight:** a wiki drifts, a little at each change. The lint reports, the person decides.
+Before a wiki becomes the knowledge of a chatbot that other people use, run the lint and read its
+report: without it, nobody checks the pages against their sources, and an error in a page becomes
+an answer given to a group. The lint takes the place of a signature on each page, but it is a
+model too: the last word stays with a person.
 
 ### What to do
 
@@ -638,7 +654,8 @@ one sentence**: does the link hold, and what is different?
 #### Step 6 - Does the graph make the chatbot faster?
 
 Discuss it, then read what was measured on 2026-10-21 (Claude Code 2.1.240, not in a Codespace), with
-the graph given to the model as a tool (mode `F`):
+the graph given to the model as a tool (mode `F`). That graph was an earlier one, with 82 nodes; the
+map you opened today has 108, and it has not been measured this way:
 
 | Questions | Mode E (wiki) | Mode F (wiki + graph) |
 |---|---|---|
@@ -646,8 +663,10 @@ the graph given to the model as a tool (mode `F`):
 | "Compare the clearing distances…" | $0.20, 42 s | $0.20, 33 s |
 
 On our 18 pages, no: the index is already a good enough map, and the model still reads the pages for
-the exact facts. A graph helps people who explore. It may help a much larger wiki: we have not
-measured that.
+the exact facts. On a small wiki, the graph does not help the model yet, but it already helps the
+people who explore: in Step 3, it showed you a link between Montoro and the French brush clearing
+that no page writes, and that you then checked yourselves. It may help
+the model on a much larger wiki: we have not measured that.
 
 > 💡 **Tip.** **Checkpoint**: the map opened in your browser, and your pair has written one verdict.
 
@@ -801,7 +820,7 @@ You leave with `<name>.zip` and `my-work.zip`, and each piece has a place in oth
 | `corpus/`, `summaries/`, the check of each summary | the *Knowledge* box, after a person has checked |
 | The skill | the skills of an agent: [OpenCode guide, Part 5](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-5---skills) |
 | The MCP tool | the tools of the chatbot, when the tool accepts them: [OpenCode guide, Part 6](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-6---tools-with-mcp) |
-| The wiki | clean pages for the *Knowledge* box |
+| The wiki | the *Knowledge* box, after a lint and a person's reading of its report |
 | `test-questions.md` and `replay` | always: the same questions before and after each change |
 
 To rebuild your chatbot, the shortest way is **Open WebUI**: in a Codespace of the Open WebUI guide
@@ -827,9 +846,24 @@ of your own: [OpenCode guide, Your own chatbot](https://github.com/Youth-AI-Lab/
 > be kept. Read [OpenRouter guide, Part 8](https://github.com/Youth-AI-Lab/yal-openrouter-guide#part-8---data-and-young-people)
 > before any session with young people.
 
-Your chatbot is finished. **Next:** [Workshop 6 - Teach a small model to sort messages](https://github.com/Youth-AI-Lab/yal-workshop-finetune): you change a model
-yourself, and it needs nothing from today. Go back to [the six workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series), or try
-another way to build a chatbot with [the guides](https://github.com/Youth-AI-Lab/yal-workshop-kit#going-further).
+### Where to go from here
+
+Your chatbot is finished: this is the end of the series "Build your own chatbot". Each guide below
+starts from what you built, and goes further in one direction:
+
+- **Share it with a group**, during a session: the [Open WebUI guide](https://github.com/Youth-AI-Lab/yal-openwebui-guide).
+- **Keep every question inside your organisation**, with a **local model** on one of its computers:
+  the [local AI guide](https://github.com/Youth-AI-Lab/yal-local-ai-guide).
+- **Keep all the pieces in a folder of your own**, with another program than Claude Code: the
+  [OpenCode guide](https://github.com/Youth-AI-Lab/yal-opencode-guide).
+- **Work without a Codespace**, on your own computer: the [dev containers guide](https://github.com/Youth-AI-Lab/yal-devcontainer-guide).
+- **Pay for many models with one account**, with a key for each pair: the [OpenRouter guide](https://github.com/Youth-AI-Lab/yal-openrouter-guide).
+- **Prepare your sessions with an assistant**, for adults only: the [Hermes guide](https://github.com/Youth-AI-Lab/yal-hermes-guide).
+
+**To go further:** [Workshop 6 - Teach a small model to sort messages](https://github.com/Youth-AI-Lab/yal-workshop-finetune)
+goes beyond the series. You change a model yourself, and put it in front of a chatbot, to sort the
+messages before the chatbot answers. It needs nothing from today. Or go back to
+[the six workshops](https://github.com/Youth-AI-Lab/yal-workshop-kit#the-series).
 
 ---
 

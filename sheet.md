@@ -1,6 +1,6 @@
 # Workshop 5 - Organise what it knows (one page)
 
-**Question of the day: how do you keep knowledge clean when it grows?**
+**Question of the day: how do you organise knowledge so that a person and a model can explore it?**
 Full page: [README.md](README.md). Setup and common problems: [SETUP.md](SETUP.md).
 
 | Score | When |
