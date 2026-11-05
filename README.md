@@ -791,7 +791,7 @@ Two more options are on the slides of the facilitator:
    > name: the model first looks for that name, then opens the page. Each page it opened becomes a
    > source of the answer. We tried this with a test model. We also tried a small model on our own
    > computer (`qwen3:8b`): it never opened the map, answered from the names of the files, and
-   > missed a page. We have not tested it with Claude.
+   > missed a page. With Claude, in one try, it opened the map first and found every page.
 
    > ℹ️ **Note.** The live tool only reads `mcp/fire-danger.json`, a file filled in from public
    > sources. It cannot write anything. If the model calls it, a line **View Result from
