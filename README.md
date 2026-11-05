@@ -127,8 +127,11 @@ conversation with `workshop bare`, and open a second terminal. In a new Codespac
 
 > 💡 **If you use OpenCode.** Same commands, after `workshop-login --engine opencode`. It asks you
 > before every shell command and every file it writes, so `ingest` means more "allow" answers.
-> `wiki-graph`, `wiki-explore` and `chatbot-export` use no model. We have not measured `ingest` and
-> `lint` with OpenCode yet: TO BE COMPLETED. The same pieces, in a chatbot folder:
+> `wiki-graph`, `wiki-explore` and `chatbot-export` use no model. We measured `ingest` and `lint` with
+> OpenCode once, with an OpenRouter key and two small models (DeepSeek v4 Flash, Mistral Small): their
+> `ingest` did not follow all the rules of the wiki, and one `lint` said that all was clean when it
+> was not. Read the report of `lint` against the pages; with a Claude key: TO BE COMPLETED. The
+> same pieces, in a chatbot folder:
 > [OpenCode guide, Part 4 - The knowledge](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-4---the-knowledge).
 
 > 💡 **If your key starts with `sk-or-` (OpenRouter).** Paste it in `workshop-login`, with no option,
@@ -762,7 +765,10 @@ Two more options are on the slides of the facilitator:
    `AGENTS.md`), the *Knowledge* box (summaries, wiki pages with their map `wiki__index.md`, readable
    copies of the documents), your own skills of workshop 3 (not the kit's), and a `README.md` on how
    to rebuild the chatbot. The live tool of workshop 4 is **not** in it: it is a program, not a
-   document. In another tool, it has to be set up again.
+   document. In another tool, it has to be set up again. Two files of `wiki/` stay out too:
+   `log.md`, the history of the wiki (with the contradictions that `ingest` and `lint` found), and
+   `AGENTS.md`, the rules of the model that writes the wiki. They are for the person who keeps the
+   wiki, not for the chatbot's answers: keep them in `my-work.zip`.
 
    ![1: feurisson.zip in the file list. 2: the item Download... of the menu that opens with a right-click.](images/download-zip-feurisson.png)
 
@@ -833,8 +839,8 @@ You leave with `<name>.zip` and `my-work.zip`, and each piece has a place in oth
 |---|---|
 | `AGENTS.md` | the *Instructions* box, or system prompt |
 | `corpus/`, `summaries/`, the check of each summary | the *Knowledge* box, after a person has checked |
-| The skill | the skills of an agent: [OpenCode guide, Part 5](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-5---skills) |
-| The MCP tool | the tools of the chatbot, when the tool accepts them: [OpenCode guide, Part 6](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-6---tools-with-mcp) |
+| The skill | your chatbot in Open WebUI, which gets it with its instructions (Step 5); in another agent: [OpenCode guide, Part 5](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-5---skills) |
+| The MCP tool | your chatbot in Open WebUI in this Codespace (Step 5); not in the file of `chatbot-export`; in another chatbot that accepts tools: [OpenCode guide, Part 6](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-6---tools-with-mcp) |
 | The wiki | the *Knowledge* box, after a lint and a person's reading of its report |
 | `test-questions.md` and `replay` | always: the same questions before and after each change |
 
