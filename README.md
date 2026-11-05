@@ -336,6 +336,15 @@ automatically), ingesting the document of Benevento took 42 seconds and cost $0.
 one updated, the index, and the log, with a contradiction that nobody had placed there. It would have
 asked a pair for 6 permissions, and the gauge reached about 26,000 tokens. A second test on
 2026-11-02 (image 2026.10.45) took 46 seconds and cost $0.17, and found the same contradiction.
+On 2026-11-05 (image 2026.11.4), with each change accepted one by one (by a script, in a
+conversation), it asked 10 times and took 35 seconds.
+
+> ⚠️ **Important.** **Check the contradiction it found.** In all our tests, it was the end of the
+> 2026 season: 15 October in the Benevento document, 30 September in the Montoro order. Read both
+> sentences: Benevento gives the end of the **campaign's activities**, set by an official letter
+> of the minister (a circular); Montoro gives the end of the **period of high danger**. Two
+> different periods can end on different days: this is probably not a contradiction. The model is
+> not always right about what it compares; you decide.
 
 > ℹ️ **Note.** **How to read our measures.** The **image** is the ready-made environment behind a
 > Codespace, and its number is its version. **In a container** means this same environment, started
@@ -469,8 +478,10 @@ model too: the last word stays with a person.
 In the same test, the lint took 2 min 10 and cost $0.55, and the gauge reached about 137,000 tokens,
 68% of the window. This is more than half of what we measured for a pair ($1.05 for `ingest`, `lint`,
 `replay E` and the judge), so run it once per session, not after each document. A second test on
-2026-11-02 (image 2026.10.45) took 72 seconds and cost $0.34: the cost of the lint changes from one
-run to the next, and it stays the most expensive step.
+2026-11-02 (image 2026.10.45) took 72 seconds and cost $0.34. A third, in a conversation on
+2026-11-05 (image 2026.11.4), took 1 min 55 and filled the gauge to about 149,000 tokens (74%), for
+about $0.80 (our estimate from the tokens): the cost of the lint changes from one run to the next,
+and it stays the most expensive step.
 
 #### Step 2 - Read the report
 
@@ -480,7 +491,9 @@ The report starts with a line of counts, and its last section is `Proposals`. In
 suggests, usually to answer a finding.
 
 In our test, it changed nothing, listed 8 proposals, some of them cosmetic, and said itself which
-sources it had not read. We checked only one against its source, and it was right.
+sources it had not read. We checked only one against its source, and it was right. On 2026-11-05,
+we checked six findings of another lint against their sources: three were right, and three pointed
+at a real gap but described it wrongly (for example, two different periods called a contradiction).
 
 In your pair, find one finding you can check. Open the page it names, then its source in
 `corpus/text/`, and search the figure or the words with `Ctrl+F`. Is it a real problem: would someone
