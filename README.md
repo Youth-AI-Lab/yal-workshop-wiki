@@ -605,12 +605,14 @@ Our graph has 111 nodes, 204 edges and 8 communities; 182 edges are `EXTRACTED`,
 
    ```
    Shortest path (1 hops):
-     Montoro protection strips (20 m around settlements, 5 m around land) --semantically_similar_to [INFERRED]--> Obligations légales de débroussaillement (OLD): 200 m zone, 50 m around buildings, 10 m along access
+     Montoro protection strips (20 m around settlements, 5 m around land) --semantically_similar_to [INFERRED 0.85]--> Obligations légales de débroussaillement (OLD): 200 m zone, 50 m around buildings, 10 m along access
+   Path confidence: INFERRED (weakest hop 1: semantically_similar_to, score 0.85)
    ```
 
    A **path** is the chain of lines that goes from one node to another. `1 hops` means that they are
    joined directly. `semantically_similar_to` is the model's label for "these two ideas look alike",
-   and `[INFERRED]` says that it guessed this.
+   and `[INFERRED 0.85]` says that it guessed this, with a confidence of 0.85 out of 1: the model's
+   own estimate, not a proof. `Path confidence` gives the weakest link of the path.
 
    On the map, this link is a dashed line: point at it to read `INFERRED`. `Node Info` does not
    show it.
@@ -624,7 +626,7 @@ Our graph has 111 nodes, 204 edges and 8 communities; 182 edges are `EXTRACTED`,
    ```
 
    You should see three connections: two marked `[EXTRACTED]`, written in the page, and the one
-   above, `[INFERRED]`. A position such as `L40-L67` is a part of the page: the lines the model
+   above, `[INFERRED 0.85]`. A position such as `L40-L67` is a part of the page: the lines the model
    pointed to when it made this node or this link. For an `[INFERRED]` link, it is where the model
    looked. It is not a sentence that says the link.
 
