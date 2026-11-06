@@ -548,15 +548,15 @@ where documents are missing.
   between two nodes.
 - **A community** is a group of nodes with many lines between them, and few to the rest. A
   calculation moves nodes from group to group. It compares the lines inside the groups with what
-  chance would give, and keeps a move when the gap grows. In our graph, 147 of the 192 edges (77%)
-  stay inside a group; with lines placed at random, about 14% would. The calculation sees only lines,
+  chance would give, and keeps a move when the gap grows. In our graph, 158 of the 204 edges (77%)
+  stay inside a group; with lines placed at random, about 16% would. The calculation sees only lines,
   not meaning: this is why Step 1 asks you if the groups make sense.
 - **`EXTRACTED`** marks an edge written in a page. **`INFERRED`** marks an edge guessed by the model:
   a suggestion, not a fact.
 - **A snapshot** is a picture taken at one moment: this graph does not change when the wiki does.
 
-Our graph has 108 nodes, 192 edges and 8 communities; 170 edges are `EXTRACTED`, 22 are `INFERRED`
-(built on 2026-11-02). `wiki-explore` calls no model: it is free.
+Our graph has 111 nodes, 204 edges and 8 communities; 182 edges are `EXTRACTED`, 22 are `INFERRED`
+(built on 2026-11-06). `wiki-explore` calls no model: it is free.
 
 **Key insight:** a graph proposes, a person checks, as for the summaries of workshop 3.
 
@@ -584,9 +584,9 @@ Our graph has 108 nodes, 192 edges and 8 communities; 170 edges are `EXTRACTED`,
 
 1. Open `wiki/graphify-out/GRAPH_REPORT.md`, and press `Ctrl+Shift+V`.
 2. Read `Corpus Check` first (here, `Corpus` means the pages of the wiki, not the folder `corpus/`):
-   `Corpus is ~16,471 words - fits in a single context window. You may not need a graph.` The report
+   `Corpus is ~16,917 words - fits in a single context window. You may not need a graph.` The report
    counts words, and the gauge counts tokens. On these pages, our measures give about 3 tokens per
-   word, so 16,471 × 3 ≈ 49,000 tokens: about a quarter of the context window (200,000 tokens), and
+   word, so 16,917 × 3 ≈ 51,000 tokens: about a quarter of the context window (200,000 tokens), and
    half of what mode B sent in workshop 2. What do you make of that?
 3. Read `Surprising Connections`: links the report thinks you did not know. Each item reads
    `first node --kind of link--> second node`, then gives the two pages. `[INFERRED]` says that the
@@ -673,7 +673,7 @@ one sentence**: does the link hold, and what is different?
 
 Discuss it, then read what was measured on 2026-10-21 (Claude Code 2.1.240, not in a Codespace), with
 the graph given to the model as a tool (mode `F`). That graph was an earlier one, with 82 nodes; the
-map you opened today has 108, and it has not been measured this way:
+map you opened today has 111, and it has not been measured this way:
 
 | Questions | Mode E (wiki) | Mode F (wiki + graph) |
 |---|---|---|
