@@ -128,15 +128,20 @@ conversation with `workshop bare`, and open a second terminal. In a new Codespac
 > 💡 **If you use OpenCode.** Same commands, after `workshop-login --engine opencode`. It asks you
 > before every shell command and every file it writes, so `ingest` means more "allow" answers.
 > `wiki-graph`, `wiki-explore` and `chatbot-export` use no model. We measured `ingest` and `lint` with
-> OpenCode once, with an OpenRouter key and two small models (DeepSeek v4 Flash, Mistral Small): their
-> `ingest` did not follow all the rules of the wiki, and one `lint` said that all was clean when it
-> was not. Read the report of `lint` against the pages; with a Claude key: TO BE COMPLETED. The
+> OpenCode on 2026-11-02, with an OpenRouter key and two small models (DeepSeek v4 Flash, Mistral
+> Small): their `ingest` did not follow all the rules of the wiki, and one `lint` said that all was
+> clean when it was not. On 2026-11-05, a second run of DeepSeek v4 Flash wrote the log and the links,
+> but noted no contradiction; its `lint` found a source the new page never cited, and 9
+> contradictions. One run each. Read the report of `lint` against the pages; with a Claude key: TO BE
+> COMPLETED. The
 > same pieces, in a chatbot folder:
 > [OpenCode guide, Part 4 - The knowledge](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-4---the-knowledge).
 
 > 💡 **If your key starts with `sk-or-` (OpenRouter).** Paste it in `workshop-login`, with no option,
-> and read [SETUP.md, With an OpenRouter key](SETUP.md#with-an-openrouter-key). Today, `openwebui chatbot`,
-> and Open WebUI with the default model, DeepSeek V4 Flash: (not tested).
+> and read [SETUP.md, With an OpenRouter key](SETUP.md#with-an-openrouter-key). `openwebui chatbot`
+> with the wiki and the default model, DeepSeek V4 Flash, was tried once on 2026-11-05, on a laptop and
+> not in a Codespace: asked which pages are about Italy, the chatbot opened the index of the wiki
+> (`wiki/index.md`) and found the 4 pages.
 
 > ℹ️ **No Codespace?** The same repository opens on your own computer, with Docker and VS Code: see
 > the [dev containers guide, Part 3](https://github.com/Youth-AI-Lab/yal-devcontainer-guide#part-3---open-a-repository).
