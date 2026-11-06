@@ -794,8 +794,8 @@ Two more options are on the slides of the facilitator:
 
 1. `openwebui chatbot` fills the two boxes for you. It packs your chatbot again, as in Step 4: your
    `AGENTS.md` goes in the *Instructions* box, and your summaries, wiki pages (with their map) and
-   documents in the *Knowledge* box of a new chatbot. It also gets the live tool of workshop 4,
-   `fire_danger`, as in mode D. In your second terminal, type, with the name of your chatbot:
+   documents in the *Knowledge* box of a new chatbot. It also gets your own skills of workshop 3
+   and the live tool of workshop 4, `fire_danger`, as in mode D. In your second terminal, type, with the name of your chatbot:
 
    ```bash
    openwebui chatbot --name "Feurisson"
@@ -815,7 +815,9 @@ Two more options are on the slides of the facilitator:
    > name: the model first looks for that name, then opens the page. Each page it opened becomes a
    > source of the answer. We tried this with a test model. We also tried a small model on our own
    > computer (`qwen3:8b`): it never opened the map, answered from the names of the files, and
-   > missed a page. With Claude, in one try, it opened the map first and found every page.
+   > missed a page. With Claude, in one try, it opened the map first and found every page. With the
+   > same small model, a rumour (the job of the skill `rumour-check`) got an empty answer, 3 times
+   > out of 3: the model took the skill for a tool it could call (see workshop 3, Part 5).
 
    > ℹ️ **Note.** The live tool only reads `mcp/fire-danger.json`, a file filled in from public
    > sources. It cannot write anything. If the model calls it, a line **View Result from
