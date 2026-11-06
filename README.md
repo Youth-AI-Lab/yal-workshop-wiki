@@ -785,7 +785,10 @@ Two more options are on the slides of the facilitator:
    `AGENTS.md`), the *Knowledge* box (summaries, wiki pages with their map `wiki__index.md`, readable
    copies of the documents), your own skills of workshop 3 (not the kit's), and a `README.md` on how
    to rebuild the chatbot. The live tool of workshop 4 is **not** in it: it is a program, not a
-   document. In another tool, it has to be set up again. Two files of `wiki/` stay out too:
+   document. In another tool, it has to be set up again: in a Codespace of the Open WebUI guide,
+   the facilitator ticks it in the chatbot, and it reads the file the facilitator fills in on the
+   day ([Step 5 - Add the live tool](https://github.com/Youth-AI-Lab/yal-openwebui-guide#step-5---add-the-live-tool-todays-fire-danger),
+   from version 2026.11.8 of the Codespace image). Two files of `wiki/` stay out too:
    `log.md`, the history of the wiki (with the contradictions that `ingest` and `lint` found), and
    `AGENTS.md`, the rules of the model that writes the wiki. They are for the person who keeps the
    wiki, not for the chatbot's answers: keep them in `my-work.zip`.
@@ -862,7 +865,7 @@ You leave with `<name>.zip` and `my-work.zip`, and each piece has a place in oth
 | `AGENTS.md` | the *Instructions* box, or system prompt |
 | `corpus/`, `summaries/`, the check of each summary | the *Knowledge* box, after a person has checked |
 | The skill | your chatbot in Open WebUI, which gets it with its instructions (Step 5); in another agent: [OpenCode guide, Part 5](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-5---skills) |
-| The MCP tool | your chatbot in Open WebUI in this Codespace (Step 5); not in the file of `chatbot-export`; in another chatbot that accepts tools: [OpenCode guide, Part 6](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-6---tools-with-mcp) |
+| The MCP tool | your chatbot in Open WebUI in this Codespace (Step 5); not in the file of `chatbot-export`; with a group, the Open WebUI guide, where the facilitator fills in the file on the day ([Step 5 - Add the live tool](https://github.com/Youth-AI-Lab/yal-openwebui-guide#step-5---add-the-live-tool-todays-fire-danger), from image 2026.11.8); in another chatbot that accepts tools, for adults: [OpenCode guide, Part 6](https://github.com/Youth-AI-Lab/yal-opencode-guide#part-6---tools-with-mcp) |
 | The wiki | the *Knowledge* box, after a lint and a person's reading of its report |
 | `test-questions.md` and `replay` | always: the same questions before and after each change |
 
